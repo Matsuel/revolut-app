@@ -2,16 +2,17 @@ import React, { useEffect, useState } from 'react'
 import { Text, View } from 'react-native'
 import { styles } from './SplashScreen.style'
 
-const SplashScreen = () => {
+const SplashScreen = ({navigation}: any) => {
 
     const [start, setStart] = useState<number>(0)
 
     useEffect(() => {
         const interval = setInterval(() => {
             if (start < 100) {
-                setStart(start + 1)
+                setStart(start + 2)
             } else {
                 clearInterval(interval)
+                navigation.navigate('Welcome')
             }
         }, 1)
         return () => clearInterval(interval)
