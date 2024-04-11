@@ -1,5 +1,4 @@
 import React from 'react';
-import { View } from 'react-native';
 import Welcome from './src/Screens/Welcome/Welcome';
 import SplashScreen from './src/Screens/SplashScreen/SplashScreen';
 import { NavigationContainer } from '@react-navigation/native';
