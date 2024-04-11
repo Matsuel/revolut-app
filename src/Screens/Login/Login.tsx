@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Text, TouchableOpacity, View, TextInput } from 'react-native'
 import { styles } from './Login.style'
 import LeftArrow from '../../assets/LeftArrow'
 import Logo from '../../assets/Logo'
+import X from '../../assets/X'
 
 const Login = ({ navigation }: any) => {
+
+    const [phoneNumber, setPhoneNumber] = useState("");
+
+    const handlePhoneNumber = (text: string) => {
+        setPhoneNumber(text)
+    }
+
     return (
         <View style={styles.container}>
             <View style={styles.top}>
@@ -28,7 +36,16 @@ const Login = ({ navigation }: any) => {
                     style={styles.input}
                     placeholder="Phone number"
                     placeholderTextColor={"#d3d3d3"}
+                    onChange={(e) => handlePhoneNumber(e.nativeEvent.text)}
+                    value={phoneNumber}
                 />
+
+                {phoneNumber.length > 0 &&
+                    <TouchableOpacity onPress={() => setPhoneNumber("")} style={styles.clear}>
+                        <X color="#fff" />
+                    </TouchableOpacity>
+                }
+
             </View>
             <View style={styles.noAccount}>
                 <Text style={styles.noAccountText}>
@@ -41,7 +58,13 @@ const Login = ({ navigation }: any) => {
                 </TouchableOpacity>
             </View>
 
-            {/* Button disabled tant que le champ n'est pas rempli mettre une échelle de gris dessus */}
+            <TouchableOpacity
+                style={[styles.button, phoneNumber.length === 0 && styles.buttonDisabled]}
+                disabled={phoneNumber.length === 0}>
+                <Text style={styles.buttonText}>
+                    Login
+                </Text>
+            </TouchableOpacity>
         </View>
     )
 }

@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
         alignItems: "center",
         backgroundColor: "#000",
     },
-    top:{
+    top: {
         width: "100%",
         height: "auto",
         flexDirection: "row",
@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
         paddingLeft: "5%",
         paddingRight: "5%",
     },
-    title : {
+    title: {
         width: "90%",
         color: "#fff",
         fontSize: 32,
@@ -55,7 +55,7 @@ export const styles = StyleSheet.create({
         height: "100%",
         color: "#fff",
         backgroundColor: "#191a1f",
-        padding:15,
+        padding: 15,
         borderRadius: 12,
         fontSize: 18,
     },
@@ -79,4 +79,32 @@ export const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: "700",
     },
+    button: {
+        width: "90%",
+        height: 50,
+        backgroundColor: "#0d6efd",
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: 50,
+        marginTop: "10%",
+    },
+    buttonDisabled: {
+        backgroundColor: "#0d6efd50",
+        opacity: 0.7,
+    },
+    buttonText: {
+        color: "#fff",
+        fontSize: 18,
+    },
+    clear:{
+        position: "absolute",
+        right: 5,
+        width: 20,
+        height: 20,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#000",
+        padding: 3,
+        borderRadius: 50,
+    }
 });
