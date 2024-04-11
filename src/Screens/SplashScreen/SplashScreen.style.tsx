@@ -13,4 +13,16 @@ export const styles = StyleSheet.create({
         fontSize: 40,
         fontWeight: "500",
     },
+    progressBar : {
+        width: "80%",
+        height: 10,
+        backgroundColor: "#000",
+        borderRadius: 10,
+        marginTop: "20%"
+    },
+    progress: {
+        height: "100%",
+        backgroundColor: "#fff",
+        borderRadius: 10
+    }
 });
