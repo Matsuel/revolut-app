@@ -3,7 +3,7 @@ import { Text, TouchableOpacity, View } from 'react-native'
 import { styles } from './Welcome.style'
 import Logo from '../../assets/Logo'
 
-const Welcome = () => {
+const Welcome = ({navigation}: any) => {
   return (
     <View style={styles.container}>
         <View style={styles.top}>
@@ -17,7 +17,7 @@ const Welcome = () => {
         </Text>
 
         <View style={styles.bottom}>
-            <TouchableOpacity style={styles.buttonLogin}>
+            <TouchableOpacity style={styles.buttonLogin} onPress={() => navigation.navigate('Login')}>
                 <Text style={styles.buttonTextLogin}>
                     Login
                 </Text>
