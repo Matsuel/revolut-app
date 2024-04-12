@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
-import { Text, TouchableOpacity, View, TextInput } from 'react-native'
+import { Text, TouchableOpacity, View, TextInput, Modal } from 'react-native'
 import { styles } from './Login.style'
 import LeftArrow from '../../assets/LeftArrow'
 import Logo from '../../assets/Logo'
 import X from '../../assets/X'
+import CountriesModal from '../Countries/Countries'
 
 const Login = ({ navigation }: any) => {
 
     const [phoneNumber, setPhoneNumber] = useState("");
+    const [showModal, setShowModal] = useState(false);
 
     const handlePhoneNumber = (text: string) => {
         setPhoneNumber(text)
@@ -29,15 +31,16 @@ const Login = ({ navigation }: any) => {
             </Text>
             <View style={styles.form}>
                 {/* Faire un composant pour le pays avec la liste des pays */}
-                <View style={styles.country}>
+                <TouchableOpacity style={styles.country} onPress={() => setShowModal(true)}>
                     <Text style={{ color: "#fff" }}>+44</Text>
-                </View>
+                </TouchableOpacity>
                 <TextInput
                     style={styles.input}
                     placeholder="Phone number"
                     placeholderTextColor={"#d3d3d3"}
                     onChange={(e) => handlePhoneNumber(e.nativeEvent.text)}
                     value={phoneNumber}
+                    autoFocus
                 />
 
                 {phoneNumber.length > 0 &&
@@ -65,6 +68,7 @@ const Login = ({ navigation }: any) => {
                     Login
                 </Text>
             </TouchableOpacity>
+            <CountriesModal showModal={showModal} setShowModal={setShowModal} />
         </View>
     )
 }

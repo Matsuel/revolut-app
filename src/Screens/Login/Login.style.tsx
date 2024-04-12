@@ -56,6 +56,7 @@ export const styles = StyleSheet.create({
         color: "#fff",
         backgroundColor: "#191a1f",
         padding: 15,
+        paddingRight: 45,
         borderRadius: 12,
         fontSize: 18,
     },
@@ -106,5 +107,5 @@ export const styles = StyleSheet.create({
         backgroundColor: "#000",
         padding: 3,
         borderRadius: 50,
-    }
+    },
 });
