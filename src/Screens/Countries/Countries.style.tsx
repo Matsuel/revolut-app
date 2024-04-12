@@ -44,6 +44,7 @@ export const styles = StyleSheet.create({
         borderTopRightRadius: 12,
         marginTop: 10,
         padding: 5,
+        // gap: 5,
     },
     country: {
         width: "100%",

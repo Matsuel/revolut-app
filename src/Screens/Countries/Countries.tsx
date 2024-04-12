@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Text, View, Modal, TouchableOpacity, FlatList, TextInput } from 'react-native';
 import { styles } from './Countries.style';
 import Datas from '../../datas/Countries.json'
@@ -26,6 +26,8 @@ const CountriesModal = ({ showModal, setShowModal, setDefaultCountry }: Props) =
         setShowModal(false);
     }
 
+    const [search, setSearch] = useState<string>("");
+
     return (
         <Modal
             animationType="slide"
@@ -42,6 +44,7 @@ const CountriesModal = ({ showModal, setShowModal, setDefaultCountry }: Props) =
                         style={styles.input}
                         placeholder="Search country"
                         placeholderTextColor={"#d3d3d3"}
+                        onChange={(e) => setSearch(e.nativeEvent.text)}
                     />
                     <TouchableOpacity onPress={() => setShowModal(false)} style={styles.cancelButton}>
                         <Text style={styles.cancelText}>
@@ -53,7 +56,7 @@ const CountriesModal = ({ showModal, setShowModal, setDefaultCountry }: Props) =
                 <View style={styles.countryList}>
                     <FlatList
                         style={{ width: "100%" }}
-                        data={Datas}
+                        data={Datas.filter((country: Country) => country.name.toLowerCase().includes(search.toLowerCase().trim()))}
                         scrollEnabled={true}
                         renderItem={({ item }: { item: Country }) => (
                             <TouchableOpacity style={styles.country} onPress={() => handleCountry(item)}>
