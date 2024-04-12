@@ -10,7 +10,13 @@ type Country = {
     code: string,
 }
 
-const CountriesModal = ({ showModal, setShowModal, setDefaultCountry }: any) => {
+interface Props {
+    showModal: boolean,
+    setShowModal: any,
+    setDefaultCountry: any,
+}
+
+const CountriesModal = ({ showModal, setShowModal, setDefaultCountry }: Props) => {
 
     const handleCountry = (country: Country) => {
         setDefaultCountry({
