@@ -4,7 +4,7 @@ import SplashScreen from './src/Screens/SplashScreen/SplashScreen';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
-import Login from './src/Screens/Login/Login';
+import Phone from './src/Screens/Phone/Phone';
 
 const Stack = createNativeStackNavigator();
 
@@ -24,8 +24,8 @@ export default function App() {
           options={{ headerShown: false, gestureEnabled: false }}
         />
         <Stack.Screen
-          name="Login"
-          component={Login}
+          name="Phone"
+          component={Phone}
           options={{ headerShown: false, gestureEnabled: false }}
         />
       </Stack.Navigator>

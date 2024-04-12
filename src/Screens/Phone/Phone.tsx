@@ -1,13 +1,20 @@
 import React, { useState } from 'react'
-import { Text, TouchableOpacity, View, TextInput, Modal } from 'react-native'
-import { styles } from './Login.style'
+import { Text, TouchableOpacity, View, TextInput } from 'react-native'
+import { styles } from './Phone.style'
 import LeftArrow from '../../assets/LeftArrow'
 import Logo from '../../assets/Logo'
 import X from '../../assets/X'
 import CountriesModal from '../Countries/Countries'
 import CountryFlag from 'react-native-country-flag'
 
-const Login = ({ navigation }: any) => {
+interface Props {
+    navigation: any,
+    route: any,
+}
+
+const Phone = ({ navigation, route }: Props) => {
+
+    const { title, subtitle, button } = route.params;
 
     const [phoneNumber, setPhoneNumber] = useState("");
     const [showModal, setShowModal] = useState(false);
@@ -30,10 +37,10 @@ const Login = ({ navigation }: any) => {
                 <Logo />
             </View>
             <Text style={styles.title}>
-                Let's get started!
+                {title}
             </Text>
             <Text style={styles.subtitle}>
-                Enter your phone number to create an account
+                {subtitle}
             </Text>
             <View style={styles.form}>
                 <TouchableOpacity style={styles.country} onPress={() => setShowModal(true)}>
@@ -77,16 +84,16 @@ const Login = ({ navigation }: any) => {
                 style={[styles.button, phoneNumber.length === 0 && styles.buttonDisabled]}
                 disabled={phoneNumber.length === 0}>
                 <Text style={styles.buttonText}>
-                    Login
+                    {button}
                 </Text>
             </TouchableOpacity>
-            <CountriesModal 
-            showModal={showModal} 
-            setShowModal={setShowModal} 
-            setDefaultCountry={setDefaultCountry}
+            <CountriesModal
+                showModal={showModal}
+                setShowModal={setShowModal}
+                setDefaultCountry={setDefaultCountry}
             />
         </View>
     )
 }
 
-export default Login
+export default Phone

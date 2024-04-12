@@ -17,12 +17,12 @@ const Welcome = ({navigation}: any) => {
         </Text>
 
         <View style={styles.bottom}>
-            <TouchableOpacity style={styles.buttonLogin} onPress={() => navigation.navigate('Login')}>
+            <TouchableOpacity style={styles.buttonLogin} onPress={() => navigation.navigate('Phone', {title : "Let's get started!", subtitle: "Enter your phone number to login to your account.", button: "Login"})}>
                 <Text style={styles.buttonTextLogin}>
                     Login
                 </Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.buttonSignUp}>
+            <TouchableOpacity style={styles.buttonSignUp} onPress={() => navigation.navigate('Phone', {title : "Create an account", subtitle: "Enter your phone number to create an account.", button: "Sign Up"})}>
                 <Text style={styles.buttonTextSignUp}>
                     Sign Up
                 </Text>
