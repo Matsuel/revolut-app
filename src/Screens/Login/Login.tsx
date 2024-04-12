@@ -52,6 +52,7 @@ const Login = ({ navigation }: any) => {
                     onChange={(e) => handlePhoneNumber(e.nativeEvent.text)}
                     value={phoneNumber}
                     autoFocus
+                    keyboardType="phone-pad"
                 />
 
                 {phoneNumber.length > 0 &&
