@@ -43,6 +43,7 @@ export const styles = StyleSheet.create({
         borderTopLeftRadius: 12,
         borderTopRightRadius: 12,
         marginTop: 10,
+        padding: 5,
     },
     country: {
         width: "100%",
@@ -51,6 +52,10 @@ export const styles = StyleSheet.create({
         alignItems: "center",
         flexDirection: "row",
         paddingLeft: 15,
-        gap: 10,
+        gap: 30,
     },
+    countryText: {
+        color: "#fff",
+        fontSize: 18,
+    }
 });

@@ -47,8 +47,10 @@ export const styles = StyleSheet.create({
         height: "100%",
         justifyContent: "center",
         alignItems: "center",
+        flexDirection: "row",
         backgroundColor: "#191a1f",
         borderRadius: 12,
+        gap: 2,
     },
     input: {
         width: "75%",
@@ -108,4 +110,8 @@ export const styles = StyleSheet.create({
         padding: 3,
         borderRadius: 50,
     },
+    countryCode: {
+        color: "#fff",
+        fontSize: 18,
+    }
 });

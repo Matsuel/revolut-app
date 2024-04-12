@@ -10,7 +10,16 @@ type Country = {
     code: string,
 }
 
-const CountriesModal = ({ showModal, setShowModal }: any) => {
+const CountriesModal = ({ showModal, setShowModal, setDefaultCountry }: any) => {
+
+    const handleCountry = (country: Country) => {
+        setDefaultCountry({
+            dial_code: country.dial_code,
+            code: country.code,
+        });
+        setShowModal(false);
+    }
+
     return (
         <Modal
             animationType="slide"
@@ -41,13 +50,13 @@ const CountriesModal = ({ showModal, setShowModal }: any) => {
                         data={Datas}
                         scrollEnabled={true}
                         renderItem={({ item }: { item: Country }) => (
-                            <TouchableOpacity style={styles.country}>
+                            <TouchableOpacity style={styles.country} onPress={() => handleCountry(item)}>
                                 <CountryFlag
                                     isoCode={item.code}
-                                    size={24}
+                                    size={35}
                                     style={{ marginLeft: 10 }}
                                 />
-                                <Text style={{ color: "#fff" }}>{item.name}</Text>
+                                <Text style={styles.countryText}>{item.name}</Text>
                             </TouchableOpacity>
                         )}
                     >

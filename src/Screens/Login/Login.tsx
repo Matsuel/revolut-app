@@ -5,6 +5,7 @@ import LeftArrow from '../../assets/LeftArrow'
 import Logo from '../../assets/Logo'
 import X from '../../assets/X'
 import CountriesModal from '../Countries/Countries'
+import CountryFlag from 'react-native-country-flag'
 
 const Login = ({ navigation }: any) => {
 
@@ -14,6 +15,11 @@ const Login = ({ navigation }: any) => {
     const handlePhoneNumber = (text: string) => {
         setPhoneNumber(text)
     }
+
+    const [defaultCountry, setDefaultCountry] = useState({
+        dial_code: "+44",
+        code: "GB",
+    });
 
     return (
         <View style={styles.container}>
@@ -30,9 +36,14 @@ const Login = ({ navigation }: any) => {
                 Enter your phone number to create an account
             </Text>
             <View style={styles.form}>
-                {/* Faire un composant pour le pays avec la liste des pays */}
                 <TouchableOpacity style={styles.country} onPress={() => setShowModal(true)}>
-                    <Text style={{ color: "#fff" }}>+44</Text>
+                    <CountryFlag
+                        isoCode={defaultCountry.code}
+                        size={15}
+                    />
+                    <Text style={styles.countryCode}>
+                        {defaultCountry.dial_code}
+                    </Text>
                 </TouchableOpacity>
                 <TextInput
                     style={styles.input}
@@ -68,7 +79,11 @@ const Login = ({ navigation }: any) => {
                     Login
                 </Text>
             </TouchableOpacity>
-            <CountriesModal showModal={showModal} setShowModal={setShowModal} />
+            <CountriesModal 
+            showModal={showModal} 
+            setShowModal={setShowModal} 
+            setDefaultCountry={setDefaultCountry}
+            />
         </View>
     )
 }
