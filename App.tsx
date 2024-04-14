@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { StatusBar } from 'expo-status-bar';
 import Phone from './src/Screens/Phone/Phone';
+import CodeConfirmation from './src/Screens/CodeConfirmation/CodeConfirmation';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,6 +27,11 @@ export default function App() {
         <Stack.Screen
           name="Phone"
           component={Phone}
+          options={{ headerShown: false, gestureEnabled: false }}
+        />
+        <Stack.Screen
+          name="CodeConfirmation"
+          component={CodeConfirmation}
           options={{ headerShown: false, gestureEnabled: false }}
         />
       </Stack.Navigator>

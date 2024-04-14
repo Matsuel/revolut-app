@@ -1,0 +1,57 @@
+import { StyleSheet } from "react-native";
+
+export const styles = StyleSheet.create({
+    container: {
+        width: "100%",
+        height: "100%",
+        justifyContent: "flex-start",
+        alignItems: "flex-start",
+        backgroundColor: "#fff",
+    },
+    top: {
+        width: "100%",
+        height: "auto",
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        gap: 10,
+        marginTop: "20%",
+        paddingLeft: "5%",
+        paddingRight: "5%",
+    },
+    title: {
+        width: "90%",
+        color: "#000",
+        fontSize: 32,
+        fontWeight: "700",
+        marginTop: "5%",
+        paddingLeft: "5%",
+    },
+    subtitle: {
+        width: "90%",
+        color: "#737a86",
+        fontSize: 18,
+        fontWeight: "400",
+        marginTop: "7%",
+        paddingLeft: "5%",
+    },
+    form: {
+        width: "90%",
+        height: "7%",
+        marginTop: "7%",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: 10,
+        marginLeft: "5%",
+    },
+    input: {
+        width: "14%",
+        height: "100%",
+        color: "#000",
+        backgroundColor: "#edeff2",
+        padding: 15,
+        borderRadius: 12,
+        textAlign: "center",
+    },
+});

@@ -84,7 +84,9 @@ const Phone = ({ navigation, route }: Props) => {
 
             <TouchableOpacity
                 style={[styles.button, phoneNumber.length === 0 && styles.buttonDisabled]}
-                disabled={phoneNumber.length === 0}>
+                disabled={phoneNumber.length === 0}
+                onPress={() => navigation.navigate('CodeConfirmation')}
+                >
                 <Text style={styles.buttonText}>
                     {button}
                 </Text>
