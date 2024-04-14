@@ -43,7 +43,7 @@ const CountriesModal = ({ showModal, setShowModal, setDefaultCountry }: Props) =
                     <TextInput
                         style={styles.input}
                         placeholder="Search country"
-                        placeholderTextColor={"#d3d3d3"}
+                        placeholderTextColor={"#000"}
                         onChange={(e) => setSearch(e.nativeEvent.text)}
                     />
                     <TouchableOpacity onPress={() => setShowModal(false)} style={styles.cancelButton}>

@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
         height: "100%",
         justifyContent: "flex-start",
         alignItems: "center",
-        backgroundColor: "#000",
+        backgroundColor: "#f7f7f7",
     },
     top: {
         width: "100%",
@@ -20,8 +20,8 @@ export const styles = StyleSheet.create({
     input: {
         width: "70%",
         height: 50,
-        backgroundColor: "#191a1f",
-        color: "#fff",
+        backgroundColor: "#edeff2",
+        color: "#000",
         paddingLeft: 15,
         paddingRight: 15,
         borderRadius: 50,
@@ -39,12 +39,11 @@ export const styles = StyleSheet.create({
         height: "90%",
         justifyContent: "flex-start",
         alignItems: "center",
-        backgroundColor: "#191a1f",
+        backgroundColor: "#fff",
         borderTopLeftRadius: 12,
         borderTopRightRadius: 12,
         marginTop: 10,
         padding: 5,
-        // gap: 5,
     },
     country: {
         width: "100%",
@@ -54,9 +53,12 @@ export const styles = StyleSheet.create({
         flexDirection: "row",
         paddingLeft: 15,
         gap: 30,
+        backgroundColor: "#f5f8ff",
+        borderRadius: 12,
+        marginTop: 5,
     },
     countryText: {
-        color: "#fff",
+        color: "#000",
         fontSize: 18,
     }
 });

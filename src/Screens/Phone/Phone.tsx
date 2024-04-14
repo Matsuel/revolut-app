@@ -6,6 +6,7 @@ import Logo from '../../assets/Logo'
 import X from '../../assets/X'
 import CountriesModal from '../Countries/Countries'
 import CountryFlag from 'react-native-country-flag'
+import { StatusBar } from 'expo-status-bar'
 
 interface Props {
     navigation: any,
@@ -30,9 +31,10 @@ const Phone = ({ navigation, route }: Props) => {
 
     return (
         <View style={styles.container}>
+            <StatusBar style="dark" />
             <View style={styles.top}>
                 <TouchableOpacity onPress={() => navigation.goBack()}>
-                    <LeftArrow color="#fff" />
+                    <LeftArrow color="#000" />
                 </TouchableOpacity>
                 <Logo />
             </View>
@@ -55,7 +57,7 @@ const Phone = ({ navigation, route }: Props) => {
                 <TextInput
                     style={styles.input}
                     placeholder="Phone number"
-                    placeholderTextColor={"#d3d3d3"}
+                    placeholderTextColor={"#000"}
                     onChange={(e) => handlePhoneNumber(e.nativeEvent.text)}
                     value={phoneNumber}
                     autoFocus

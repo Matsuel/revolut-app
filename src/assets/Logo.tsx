@@ -1,14 +1,19 @@
 import * as React from "react"
 import Svg, { Path } from "react-native-svg"
 
-function Logo(props:any) {
+interface Props {
+  props?: any
+  color?: string
+}
+
+function Logo({ props, color }: Props) {
   return (
     <Svg
       width="25px"
       height="25px"
       viewBox="0 0 192 192"
       xmlns="http://www.w3.org/2000/svg"
-      fill="none"
+      fill={color || "#000"}
       {...props}
     >
       <Path
