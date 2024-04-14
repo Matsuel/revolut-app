@@ -3,6 +3,7 @@ import { Text, View, Modal, TouchableOpacity, FlatList, TextInput } from 'react-
 import { styles } from './Countries.style';
 import Datas from '../../datas/Countries.json'
 import CountryFlag from "react-native-country-flag";
+import { StatusBar } from 'expo-status-bar';
 
 type Country = {
     name: string,
@@ -38,6 +39,7 @@ const CountriesModal = ({ showModal, setShowModal, setDefaultCountry }: Props) =
             onTouchStart={(e) => e.stopPropagation()}
             presentationStyle='pageSheet'
         >
+            <StatusBar style="light" />
             <View style={styles.container}>
                 <View style={styles.top}>
                     <TextInput
