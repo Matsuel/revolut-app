@@ -1,11 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Text, TextInput, TextInputKeyPressEventData, TouchableOpacity, View } from 'react-native'
+import { Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { styles } from './CodeConfirmation.style'
 import LeftArrow from '../../assets/LeftArrow'
 import Logo from '../../assets/Logo'
 import { focusNext, focusPrev, focusFirst } from '../../Functions/CodeConfirmation'
 
-const CodeConfirmation = ({ navigation }: any) => {
+interface Props {
+    navigation: any,
+    route?: any,
+}
+
+const CodeConfirmation = ({ navigation, route }: Props) => {
+
+    const { dial_code, phone_number, code } = route.params;
 
     const inputs = useRef<any[]>([]);
     const [timer, setTimer] = useState<number>(30);
@@ -37,7 +44,7 @@ const CodeConfirmation = ({ navigation }: any) => {
                 Enter the code
             </Text>
             <Text style={styles.subtitle}>
-                Code send to +44 123456789 unless your already signed in
+                Code send to {dial_code} {phone_number} unless your already signed in
             </Text>
 
             <View style={styles.form}>

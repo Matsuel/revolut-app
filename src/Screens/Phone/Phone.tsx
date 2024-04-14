@@ -7,6 +7,7 @@ import X from '../../assets/X'
 import CountriesModal from '../Countries/Countries'
 import CountryFlag from 'react-native-country-flag'
 import { StatusBar } from 'expo-status-bar'
+import { genereateCode } from '../../Functions/Phone'
 
 interface Props {
     navigation: any,
@@ -22,6 +23,14 @@ const Phone = ({ navigation, route }: Props) => {
 
     const handlePhoneNumber = (text: string) => {
         setPhoneNumber(text)
+    }
+
+    const handleCodeConfirmation = () => {
+        navigation.navigate('CodeConfirmation', {
+            dial_code: defaultCountry.dial_code,
+            phone_number: phoneNumber,
+            code: genereateCode()
+        });
     }
 
     const [defaultCountry, setDefaultCountry] = useState({
@@ -85,7 +94,7 @@ const Phone = ({ navigation, route }: Props) => {
             <TouchableOpacity
                 style={[styles.button, phoneNumber.length === 0 && styles.buttonDisabled]}
                 disabled={phoneNumber.length === 0}
-                onPress={() => navigation.navigate('CodeConfirmation')}
+                onPress={handleCodeConfirmation}
                 >
                 <Text style={styles.buttonText}>
                     {button}

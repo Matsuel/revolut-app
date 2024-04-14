@@ -7,6 +7,8 @@ export const styles = StyleSheet.create({
         justifyContent: "flex-start",
         alignItems: "flex-start",
         backgroundColor: "#fff",
+        paddingLeft: "5%",
+        paddingRight: "5%",
     },
     top: {
         width: "100%",
@@ -16,8 +18,6 @@ export const styles = StyleSheet.create({
         alignItems: "center",
         gap: 10,
         marginTop: "20%",
-        paddingLeft: "5%",
-        paddingRight: "5%",
     },
     title: {
         width: "90%",
@@ -25,7 +25,6 @@ export const styles = StyleSheet.create({
         fontSize: 32,
         fontWeight: "700",
         marginTop: "5%",
-        paddingLeft: "5%",
     },
     subtitle: {
         width: "90%",
@@ -33,7 +32,6 @@ export const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: "400",
         marginTop: "7%",
-        paddingLeft: "5%",
     },
     form: {
         width: "90%",
@@ -43,7 +41,6 @@ export const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         gap: 10,
-        marginLeft: "5%",
     },
     input: {
         width: "14%",
@@ -60,7 +57,6 @@ export const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "flex-start",
         marginTop: "5%",
-        paddingLeft: "5%",
     },
     resendText: {
         color: "#0d6efd",
@@ -78,7 +74,6 @@ export const styles = StyleSheet.create({
         justifyContent: "flex-start",
         alignItems: "center",
         flexDirection: "row",
-        paddingLeft: "5%",
     },
     noAccountText: {
         color: "#0d6efd",
