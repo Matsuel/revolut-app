@@ -1,28 +1,29 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Text, TextInput, TextInputKeyPressEventData, TouchableOpacity, View } from 'react-native'
 import { styles } from './CodeConfirmation.style'
 import LeftArrow from '../../assets/LeftArrow'
 import Logo from '../../assets/Logo'
+import { focusNext, focusPrev, focusFirst } from '../../Functions/CodeConfirmation'
 
 const CodeConfirmation = ({ navigation }: any) => {
 
+    const inputs = useRef<any[]>([]);
+    const [timer, setTimer] = useState<number>(30);
+
     const num = 123456;
     const arrayNum = Array.from(String(num), Number);
-    console.log(arrayNum);
 
-    const inputs = useRef<any[]>([]);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setTimer((prev) => (prev > 0 ? prev - 1 : 0));
+        }, 1000);
 
-    const focusNext  = (key: number, value: string | any[]) => {
-        if (value.length > 0 && inputs.current[key + 1]) {
-            inputs.current[key + 1].focus();
-        }
-    }
+        return () => clearInterval(interval);
+    }, [timer]);
 
-    const focusPrev = (key: number, nativeKey: TextInputKeyPressEventData) => {
-        if (nativeKey.key === 'Backspace' && inputs.current[key - 1]) {
-            inputs.current[key - 1].focus();
-        }
-    }
+    useEffect(() => {
+        focusFirst(inputs);
+    }, []);
 
     return (
         <View style={styles.container}>
@@ -47,11 +48,27 @@ const CodeConfirmation = ({ navigation }: any) => {
                         keyboardType="numeric"
                         maxLength={1}
                         ref={el => inputs.current[index] = el}
-                        onChangeText={(value) => focusNext(index, value)}
-                        onKeyPress={({ nativeEvent}) => focusPrev(index, nativeEvent)}
+                        onChangeText={(value) => focusNext(index, value, inputs)}
+                        onKeyPress={({ nativeEvent}) => focusPrev(index, nativeEvent, inputs)}
                     />
                 ))}
+            </View>
 
+            <TouchableOpacity style={styles.resend} disabled={timer > 0} onPress={() => setTimer(30)}>
+                <Text style={[timer > 0 ? styles.resendWait : styles.resendText]}>
+                    {timer > 0 ? `Resend code in 00:${timer}` : "Resend code"}
+                </Text>
+            </TouchableOpacity>
+
+            <View style={styles.noAccount}>
+                <Text style={styles.noAccountText}>
+                    Haven't an account?
+                </Text>
+                <TouchableOpacity onPress={() => navigation.navigate('SignUp')} style={styles.noAccountButton}>
+                    <Text style={styles.signUp}>
+                        Sign Up
+                    </Text>
+                </TouchableOpacity>
             </View>
         </View>
     )

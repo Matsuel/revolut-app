@@ -54,4 +54,43 @@ export const styles = StyleSheet.create({
         borderRadius: 12,
         textAlign: "center",
     },
+    resend: {
+        width: "90%",
+        height: "auto",
+        justifyContent: "center",
+        alignItems: "flex-start",
+        marginTop: "5%",
+        paddingLeft: "5%",
+    },
+    resendText: {
+        color: "#0d6efd",
+        fontSize: 18,
+        fontWeight: "700",
+    },
+    resendWait: {
+        color: "#000",
+        fontSize: 18,
+        fontWeight: "400",
+    },
+    noAccount: {
+        width: "90%",
+        marginTop: "3%",
+        justifyContent: "flex-start",
+        alignItems: "center",
+        flexDirection: "row",
+        paddingLeft: "5%",
+    },
+    noAccountText: {
+        color: "#0d6efd",
+        fontSize: 18,
+        fontWeight: "400",
+    },
+    noAccountButton: {
+        marginLeft: 5,
+    },
+    signUp: {
+        color: "#0d6efd",
+        fontSize: 18,
+        fontWeight: "700",
+    },
 });
