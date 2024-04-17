@@ -61,4 +61,7 @@ export const styles = StyleSheet.create({
         color: "#737a86",
         fontSize: 16,
     },
+    buttons: {
+        marginTop: "8%",
+    },
 });
