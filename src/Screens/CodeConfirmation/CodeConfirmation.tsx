@@ -3,7 +3,7 @@ import { ActionSheetIOS, Alert, Text, TextInput, TouchableOpacity, View } from '
 import { styles } from './CodeConfirmation.style'
 import LeftArrow from '../../assets/LeftArrow'
 import Logo from '../../assets/Logo'
-import { focusNext, focusPrev, focusFirst, checkCode } from '../../Functions/CodeConfirmation'
+import { focusNext, focusPrev, focusFirst, checkCode, handleCode, clearInputs } from '../../Functions/CodeConfirmation'
 import { Timer } from '../../Components/Timer/Timer'
 
 interface Props {
@@ -15,31 +15,18 @@ const CodeConfirmation = ({ navigation, route }: Props) => {
 
     const { dial_code, phone_number, code } = route.params;
 
-    console.log(code);
+    console.log(code, "code")
 
     const inputs = useRef<any[]>([]);
 
     const [value, setValue] = useState<number[]>(new Array(code.length).fill(NaN));
+    const [codeCorrect, setCodeCorrect] = useState<number>(0);
 
     const arrayNum = Array.from(String(code), Number);
 
     useEffect(() => {
         focusFirst(inputs);
     }, []);
-
-    const handleCode = (v: string, index: number) => {
-        const newValue = [...value];
-        if (isNaN(parseInt(v))) {
-            newValue[index] = NaN;
-            setValue(newValue);
-        } else {
-            newValue[index] = parseInt(v);
-            console.log(newValue);
-            console.log(arrayNum);
-            console.log(checkCode(newValue, arrayNum));
-            setValue(newValue);
-        }
-    }
 
     return (
         <View style={styles.container}>
@@ -66,12 +53,15 @@ const CodeConfirmation = ({ navigation, route }: Props) => {
                         ref={el => inputs.current[index] = el}
                         onChangeText={(value) => focusNext(index, value, inputs)}
                         onKeyPress={({ nativeEvent }) => focusPrev(index, nativeEvent, inputs)}
-                        onChange={(e) => handleCode(e.nativeEvent.text, index)}
+                        onChange={(e) => handleCode(e.nativeEvent.text, index, value, setValue, arrayNum, setCodeCorrect)}
                     />
                 ))}
             </View>
 
             <Timer timervalue={30} />
+
+            {AlertMessage("Wrong Code", "The code you entered is wrong", true, codeCorrect, setCodeCorrect, inputs)}
+
 
             <View style={styles.noAccount}>
                 <Text style={styles.noAccountText}>
@@ -85,6 +75,26 @@ const CodeConfirmation = ({ navigation, route }: Props) => {
             </View>
         </View>
     )
+}
+
+const AlertMessage = (title: string, message: string, cancelable: boolean, codeCorrect: number, setCodeCorrect: Function, inputs: any) => {
+    if (codeCorrect === 0) return null;
+    Alert.alert(
+        title,
+        message,
+        [
+            {
+                text: "OK",
+                onPress: () => {
+                    setCodeCorrect(0)
+                    clearInputs(inputs);
+                }
+            },
+        ],
+        { cancelable: cancelable }
+    );    
+
+    return null;
 }
 
 export default CodeConfirmation
