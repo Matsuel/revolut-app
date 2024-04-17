@@ -65,7 +65,7 @@ const Names = ({ navigation }: any) => {
                 ))}
 
                 <View style={styles.bottom}>
-                    <ButtonCustom title='Continue' nextScreen='Phone' navigation={navigation} disabled={firstName.length === 0 || lastName.length === 0} />
+                    <ButtonCustom title='Continue' nextScreen='BirthDate' navigation={navigation} disabled={firstName.length === 0 || lastName.length === 0} />
                 </View>
             </View>
         </View>
