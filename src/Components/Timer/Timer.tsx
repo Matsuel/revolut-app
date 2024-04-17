@@ -17,7 +17,7 @@ export const Timer = ({ timervalue }: { timervalue: number }) => {
     return (
         <TouchableOpacity style={styles.resend} disabled={timer > 0} onPress={() => setTimer(30)}>
             <Text style={[timer > 0 ? styles.resendWait : styles.resendText]}>
-                {timer > 0 ? `Resend code in 00:${timer}` : "Resend code"}
+                {timer > 0 ? `Resend code in 00:${timer < 10 ? `0${timer}` : timer}` : "Resend code"}
             </Text>
         </TouchableOpacity>
     )

@@ -26,16 +26,23 @@ export const checkCode = (value: number[], arrayNum: number[]) => {
     return value.every((v, i) => v === arrayNum[i]) && checkCodeLength(value);
 }
 
-export const handleCode = (v: string, index: number, value: number[], setValue: Function, arrayNum: number[], setCodeCorrect: Function) => {
+export const handleCode = (v: string, index: number, value: number[], setValue: Function, arrayNum: number[]) => {
     const newValue = [...value];
     if (isNaN(parseInt(v))) {
         newValue[index] = NaN;
         setValue(newValue);
+        return 0;
     } else {
         newValue[index] = parseInt(v);
         console.log(checkCode(newValue, arrayNum));
         setValue(newValue);
-        checkCode(newValue, arrayNum) ? setCodeCorrect(2) : checkCodeLength(newValue) ? setCodeCorrect(1) : setCodeCorrect(0);
+        if (checkCode(newValue, arrayNum)) {
+            return 2;
+        } else if (checkCodeLength(newValue)) {
+            return 1;
+        } else {
+            return 0;
+        }
         // 1 = wrong code, 2 = correct code, 0 = code not complete
     }
 }
