@@ -26,12 +26,10 @@ export const styles = StyleSheet.create({
         width: "100%",
         height: "auto",
         marginTop: "10%",
-        flexDirection: "column",
         justifyContent: "flex-start",
         alignItems: "flex-start",
         backgroundColor: "#fff",
         borderRadius: 12,
-        gap: 25,
     },
     instruction: {
         width: "100%",
@@ -40,12 +38,18 @@ export const styles = StyleSheet.create({
         justifyContent: "flex-start",
         alignItems: "center",
         gap: 15,
-        padding: 20,
+        padding: 15,
     },
     instructionText: {
         width: "80%",
         color: "#000",
         fontSize: 16,
         fontWeight: "600",
+    },
+    icon: {
+        width: 30,
+        height: 30,
+        justifyContent: "center",
+        alignItems: "center",
     },
 });
