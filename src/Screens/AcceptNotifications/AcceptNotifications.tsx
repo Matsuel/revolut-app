@@ -3,6 +3,7 @@ import { styles } from './AcceptNotifications.style'
 import { Text, View, Image, TouchableOpacity } from 'react-native'
 import LeftArrow from '../../assets/LeftArrow'
 import Logo from '../../assets/Logo'
+import ButtonCustom, { ButtonCustom2 } from '../../Components/ButtonCustom/ButtonCustom'
 
 const AcceptNotifications = ({ navigation }: any) => {
   return (
@@ -22,12 +23,8 @@ const AcceptNotifications = ({ navigation }: any) => {
       <Image source={require('../../assets/Notifs.png')} />
 
       <View style={styles.buttons}>
-        <TouchableOpacity style={styles.buttonAccept} onPress={() => navigation.navigate('Country')}>
-          <Text style={styles.buttonTextAccept}>Enable push notifications</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonNotNow} onPress={() => navigation.navigate('Country')}>
-          <Text style={styles.buttonTextNotNow}>Not now</Text>
-        </TouchableOpacity>
+        <ButtonCustom navigation={navigation} nextScreen="Country" title="Enable push notifications" />
+        <ButtonCustom2 navigation={navigation} nextScreen="Country" title="Not now" />
       </View>
     </View>
   )

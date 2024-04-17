@@ -65,6 +65,7 @@ export const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         marginTop: "80%",
+        gap: 20,
     },
     paragraph: {
         width: "100%",

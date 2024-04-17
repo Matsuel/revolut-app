@@ -3,8 +3,9 @@ import { styles } from './Country.style'
 import { Text, TouchableOpacity, View } from 'react-native'
 import Chevron from '../../assets/Chevron'
 import CountriesModal from '../Countries/Countries'
+import ButtonCustom from '../../Components/ButtonCustom/ButtonCustom'
 
-const Country = () => {
+const Country = ({ navigation }: any) => {
 
     const [showModal, setShowModal] = useState<boolean>(false);
     const [defaultCountry, setDefaultCountry] = useState({
@@ -48,12 +49,8 @@ const Country = () => {
                     </Text>
                     . Digital-only support available 24/7 via the in-app-chat. Your data will be securely encrypted with TLS 🔒.
                 </Text>
-
-                <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>
-                        Sign up securely
-                    </Text>
-                </TouchableOpacity>
+                
+                <ButtonCustom navigation={navigation} nextScreen="Phone" title="Sign up securely" />
             </View>
 
             <CountriesModal showModal={showModal} setShowModal={setShowModal} setDefaultCountry={setDefaultCountry} />
