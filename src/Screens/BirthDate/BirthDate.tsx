@@ -29,7 +29,7 @@ const BirthDate = ({ navigation }: any) => {
                 <View style={styles.inputContainer}>
                     <TextInput
                         style={styles.input}
-                        placeholder="DD"
+                        placeholder="DD/MM/YYYY"
                         autoFocus
                         value={input}
                         maxLength={10}
@@ -47,8 +47,8 @@ const BirthDate = ({ navigation }: any) => {
             <View style={styles.buttons}>
                 <ButtonCustom
                     title="Continue"
-                    nextScreen=''
-                    disabled={input.length === 0}
+                    nextScreen='Address'
+                    disabled={input.length !== 10}
                     navigation={navigation}
                 />
             </View>

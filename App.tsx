@@ -10,6 +10,7 @@ import AcceptNotifications from './src/Screens/AcceptNotifications/AcceptNotific
 import Country from './src/Screens/Country/Country';
 import Names from './src/Screens/Names/Names';
 import BirthDate from './src/Screens/BirthDate/BirthDate';
+import Address from './src/Screens/Address/Address';
 
 const Stack = createNativeStackNavigator();
 
@@ -56,6 +57,11 @@ export default function App() {
         <Stack.Screen
           name="BirthDate"
           component={BirthDate}
+          options={{ headerShown: false, gestureEnabled: false }}
+        />
+        <Stack.Screen
+          name="Address"
+          component={Address}
           options={{ headerShown: false, gestureEnabled: false }}
         />
       </Stack.Navigator>
