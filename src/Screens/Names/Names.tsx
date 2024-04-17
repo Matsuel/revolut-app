@@ -51,8 +51,8 @@ const Names = ({ navigation }: any) => {
             <View style={styles.form}>
 
                 {buttons.map((button, index) => (
-                    <View style={styles.inputContainer} key={index}>
-                        <TextInput style={styles.input} placeholder={button.title} value={button.value} onChangeText={(text) => button.onChangeText(text)} />
+                    <View style={styles.inputContainer} key={button.title}>
+                        <TextInput style={styles.input} placeholder={button.title} value={button.value} onChangeText={(text) => button.onChangeText(text)} autoFocus={index===0} />
                         <Text style={styles.label}>
                             {button.title}
                         </Text>

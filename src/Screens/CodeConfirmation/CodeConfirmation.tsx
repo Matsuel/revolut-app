@@ -16,6 +16,8 @@ const CodeConfirmation = ({ navigation, route }: Props) => {
 
     const { dial_code, phone_number, code } = route.params;
 
+    console.log(code, "code");
+
     const inputs = useRef<any[]>([]);
 
     const [value, setValue] = useState<number[]>(new Array(code.length).fill(NaN));
