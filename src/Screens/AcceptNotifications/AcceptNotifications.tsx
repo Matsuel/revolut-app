@@ -22,10 +22,10 @@ const AcceptNotifications = ({ navigation }: any) => {
       <Image source={require('../../assets/Notifs.png')} />
 
       <View style={styles.buttons}>
-        <TouchableOpacity style={styles.buttonAccept}>
+        <TouchableOpacity style={styles.buttonAccept} onPress={() => navigation.navigate('Country')}>
           <Text style={styles.buttonTextAccept}>Enable push notifications</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonNotNow}>
+        <TouchableOpacity style={styles.buttonNotNow} onPress={() => navigation.navigate('Country')}>
           <Text style={styles.buttonTextNotNow}>Not now</Text>
         </TouchableOpacity>
       </View>

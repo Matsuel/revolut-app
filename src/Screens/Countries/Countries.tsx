@@ -23,6 +23,7 @@ const CountriesModal = ({ showModal, setShowModal, setDefaultCountry }: Props) =
         setDefaultCountry({
             dial_code: country.dial_code,
             code: country.code,
+            name: country.name
         });
         setShowModal(false);
     }

@@ -36,6 +36,7 @@ const Phone = ({ navigation, route }: Props) => {
     const [defaultCountry, setDefaultCountry] = useState({
         dial_code: "+44",
         code: "GB",
+        name: "United Kingdom"
     });
 
     return (

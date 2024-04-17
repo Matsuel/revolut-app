@@ -7,6 +7,7 @@ import { StatusBar } from 'expo-status-bar';
 import Phone from './src/Screens/Phone/Phone';
 import CodeConfirmation from './src/Screens/CodeConfirmation/CodeConfirmation';
 import AcceptNotifications from './src/Screens/AcceptNotifications/AcceptNotifications';
+import Country from './src/Screens/Country/Country';
 
 const Stack = createNativeStackNavigator();
 
@@ -38,6 +39,11 @@ export default function App() {
         <Stack.Screen
           name="AcceptNotifications"
           component={AcceptNotifications}
+          options={{ headerShown: false, gestureEnabled: false }}
+        />
+        <Stack.Screen
+          name="Country"
+          component={Country}
           options={{ headerShown: false, gestureEnabled: false }}
         />
       </Stack.Navigator>
