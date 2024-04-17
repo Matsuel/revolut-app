@@ -6,7 +6,7 @@ export const styles = StyleSheet.create({
         height: "100%",
         justifyContent: "flex-start",
         alignItems: "center",
-        backgroundColor: "#fff",
+        backgroundColor: "#f7f7f7",
     },
     top: {
         width: "100%",
