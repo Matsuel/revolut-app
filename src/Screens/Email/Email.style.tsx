@@ -47,4 +47,18 @@ export const styles = StyleSheet.create({
         color: "#737a86",
         fontSize: 16,
     },
+    acceptMail: {
+        width: "100%",
+        height: "9%",
+        marginTop: "15%",
+        flexDirection: "row",
+        justifyContent: "flex-start",
+        alignItems: "center",
+        gap: 10,
+    },
+    acceptMailText: {
+        width: "70%",
+        color: "#737a86",
+        fontSize: 16,
+    },
 });
