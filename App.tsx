@@ -8,6 +8,7 @@ import Phone from './src/Screens/Phone/Phone';
 import CodeConfirmation from './src/Screens/CodeConfirmation/CodeConfirmation';
 import AcceptNotifications from './src/Screens/AcceptNotifications/AcceptNotifications';
 import Country from './src/Screens/Country/Country';
+import Names from './src/Screens/Names/Names';
 
 const Stack = createNativeStackNavigator();
 
@@ -44,6 +45,11 @@ export default function App() {
         <Stack.Screen
           name="Country"
           component={Country}
+          options={{ headerShown: false, gestureEnabled: false }}
+        />
+        <Stack.Screen
+          name="Names"
+          component={Names}
           options={{ headerShown: false, gestureEnabled: false }}
         />
       </Stack.Navigator>

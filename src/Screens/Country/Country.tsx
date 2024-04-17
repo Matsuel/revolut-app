@@ -49,8 +49,8 @@ const Country = ({ navigation }: any) => {
                     </Text>
                     . Digital-only support available 24/7 via the in-app-chat. Your data will be securely encrypted with TLS 🔒.
                 </Text>
-                
-                <ButtonCustom navigation={navigation} nextScreen="Phone" title="Sign up securely" />
+
+                <ButtonCustom navigation={navigation} nextScreen="Names" title="Sign up securely" />
             </View>
 
             <CountriesModal showModal={showModal} setShowModal={setShowModal} setDefaultCountry={setDefaultCountry} />

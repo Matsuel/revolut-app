@@ -27,4 +27,12 @@ export const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: "700",
     },
+    buttonDisabled: {
+        width: "100%",
+        height: 50,
+        backgroundColor: "#e8f0fc",
+        borderRadius: 50,
+        justifyContent: "center",
+        alignItems: "center",
+    },
 });

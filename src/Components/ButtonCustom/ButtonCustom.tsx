@@ -6,12 +6,12 @@ interface Props {
     navigation: any;
     nextScreen: string;
     title: string;
-
+    disabled?: boolean;
 }
 
-const ButtonCustom = ({ navigation, nextScreen, title }: Props) => {
+const ButtonCustom = ({ navigation, nextScreen, title, disabled }: Props) => {
     return (
-        <TouchableOpacity style={styles.button1} onPress={() => navigation.navigate(nextScreen)}>
+        <TouchableOpacity style={[styles.button1, disabled && styles.buttonDisabled]} onPress={() => navigation.navigate(nextScreen)} disabled={disabled ? true : false}>
             <Text style={styles.buttonText1}>
                 {title}
             </Text>
@@ -19,9 +19,9 @@ const ButtonCustom = ({ navigation, nextScreen, title }: Props) => {
     )
 }
 
-export const ButtonCustom2 = ({ navigation, nextScreen, title }: Props) => {
+export const ButtonCustom2 = ({ navigation, nextScreen, title, disabled }: Props) => {
     return (
-        <TouchableOpacity style={styles.buttonNotNow} onPress={() => navigation.navigate(nextScreen)}>
+        <TouchableOpacity style={[styles.buttonNotNow, disabled && styles.buttonDisabled]} onPress={() => navigation.navigate(nextScreen)} disabled={disabled ? true : false}>
           <Text style={styles.buttonTextNotNow}>
             {title}
           </Text>
