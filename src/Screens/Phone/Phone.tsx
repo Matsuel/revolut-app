@@ -8,6 +8,7 @@ import CountriesModal from '../Countries/Countries'
 import CountryFlag from 'react-native-country-flag'
 import { StatusBar } from 'expo-status-bar'
 import { genereateCode } from '../../Functions/Phone'
+import GoBack from '../../Components/GoBack/GoBack'
 
 interface Props {
     navigation: any,
@@ -43,9 +44,7 @@ const Phone = ({ navigation, route }: Props) => {
         <View style={styles.container}>
             <StatusBar style="dark" />
             <View style={styles.top}>
-                <TouchableOpacity onPress={() => navigation.goBack()}>
-                    <LeftArrow color="#000" />
-                </TouchableOpacity>
+                <GoBack navigation={navigation} color='#000' />
                 <Logo />
             </View>
             <Text style={styles.title}>

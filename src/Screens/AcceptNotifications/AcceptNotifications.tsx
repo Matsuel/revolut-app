@@ -4,14 +4,13 @@ import { Text, View, Image, TouchableOpacity } from 'react-native'
 import LeftArrow from '../../assets/LeftArrow'
 import Logo from '../../assets/Logo'
 import ButtonCustom, { ButtonCustom2 } from '../../Components/ButtonCustom/ButtonCustom'
+import GoBack from '../../Components/GoBack/GoBack'
 
 const AcceptNotifications = ({ navigation }: any) => {
   return (
     <View style={styles.container}>
       <View style={styles.top}>
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <LeftArrow color="#000" />
-        </TouchableOpacity>
+        <GoBack navigation={navigation} color='#000' />
         <Logo />
       </View>
       <Text style={styles.title}>

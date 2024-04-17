@@ -5,6 +5,7 @@ import LeftArrow from '../../assets/LeftArrow'
 import Logo from '../../assets/Logo'
 import { focusNext, focusPrev, focusFirst, checkCode, handleCode, clearInputs } from '../../Functions/CodeConfirmation'
 import { Timer } from '../../Components/Timer/Timer'
+import GoBack from '../../Components/GoBack/GoBack'
 
 interface Props {
     navigation: any,
@@ -14,8 +15,6 @@ interface Props {
 const CodeConfirmation = ({ navigation, route }: Props) => {
 
     const { dial_code, phone_number, code } = route.params;
-
-    console.log(code, "code")
 
     const inputs = useRef<any[]>([]);
 
@@ -31,9 +30,7 @@ const CodeConfirmation = ({ navigation, route }: Props) => {
     return (
         <View style={styles.container}>
             <View style={styles.top}>
-                <TouchableOpacity onPress={() => navigation.goBack()}>
-                    <LeftArrow color="#000" />
-                </TouchableOpacity>
+                <GoBack navigation={navigation} color='#000' />
                 <Logo />
             </View>
             <Text style={styles.title}>
