@@ -12,6 +12,7 @@ import Names from './src/Screens/Names/Names';
 import BirthDate from './src/Screens/BirthDate/BirthDate';
 import Address from './src/Screens/Address/Address';
 import Email from './src/Screens/Email/Email';
+import Identity from './src/Screens/Identity/Identity';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +21,13 @@ export default function App() {
     <NavigationContainer>
       <StatusBar style="light" />
       <Stack.Navigator>
+
+        <Stack.Screen
+          name="Identity"
+          component={Identity}
+          options={{ headerShown: false, gestureEnabled: false }}
+        />
+
         <Stack.Screen
           name="SplashScreen"
           component={SplashScreen}
@@ -70,6 +78,7 @@ export default function App() {
           component={Email}
           options={{ headerShown: false, gestureEnabled: false }}
         />
+
       </Stack.Navigator>
     </NavigationContainer>
   );

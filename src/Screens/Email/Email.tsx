@@ -41,7 +41,7 @@ const Email = ({ navigation }: any) => {
             <View style={styles.buttons}>
                 <ButtonCustom
                     title="Continue"
-                    nextScreen='BirthDate'
+                    nextScreen='Identity'
                     disabled={email.length === 0 || email.indexOf('@') === -1 || email.indexOf('.') === -1}
                     navigation={navigation}
                 />
