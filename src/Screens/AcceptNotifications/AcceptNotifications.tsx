@@ -20,6 +20,15 @@ const AcceptNotifications = ({ navigation }: any) => {
         Get notified about spending, security, whealth, market movements, discounts and deals, so you're always in the know
       </Text>
       <Image source={require('../../assets/Notifs.png')} />
+
+      <View style={styles.buttons}>
+        <TouchableOpacity style={styles.buttonAccept}>
+          <Text style={styles.buttonTextAccept}>Enable push notifications</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.buttonNotNow}>
+          <Text style={styles.buttonTextNotNow}>Not now</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   )
 }
