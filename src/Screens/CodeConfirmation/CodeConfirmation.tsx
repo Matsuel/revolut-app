@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { ActionSheetIOS, Alert, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { styles } from './CodeConfirmation.style'
 import LeftArrow from '../../assets/LeftArrow'
 import Logo from '../../assets/Logo'
-import { focusNext, focusPrev, focusFirst } from '../../Functions/CodeConfirmation'
+import { focusNext, focusPrev, focusFirst, checkCode } from '../../Functions/CodeConfirmation'
+import { Timer } from '../../Components/Timer/Timer'
 
 interface Props {
     navigation: any,
@@ -14,23 +15,31 @@ const CodeConfirmation = ({ navigation, route }: Props) => {
 
     const { dial_code, phone_number, code } = route.params;
 
+    console.log(code);
+
     const inputs = useRef<any[]>([]);
-    const [timer, setTimer] = useState<number>(30);
 
-    const num = 123456;
-    const arrayNum = Array.from(String(num), Number);
+    const [value, setValue] = useState<number[]>(new Array(code.length).fill(NaN));
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setTimer((prev) => (prev > 0 ? prev - 1 : 0));
-        }, 1000);
-
-        return () => clearInterval(interval);
-    }, [timer]);
+    const arrayNum = Array.from(String(code), Number);
 
     useEffect(() => {
         focusFirst(inputs);
     }, []);
+
+    const handleCode = (v: string, index: number) => {
+        const newValue = [...value];
+        if (isNaN(parseInt(v))) {
+            newValue[index] = NaN;
+            setValue(newValue);
+        } else {
+            newValue[index] = parseInt(v);
+            console.log(newValue);
+            console.log(arrayNum);
+            console.log(checkCode(newValue, arrayNum));
+            setValue(newValue);
+        }
+    }
 
     return (
         <View style={styles.container}>
@@ -56,16 +65,13 @@ const CodeConfirmation = ({ navigation, route }: Props) => {
                         maxLength={1}
                         ref={el => inputs.current[index] = el}
                         onChangeText={(value) => focusNext(index, value, inputs)}
-                        onKeyPress={({ nativeEvent}) => focusPrev(index, nativeEvent, inputs)}
+                        onKeyPress={({ nativeEvent }) => focusPrev(index, nativeEvent, inputs)}
+                        onChange={(e) => handleCode(e.nativeEvent.text, index)}
                     />
                 ))}
             </View>
 
-            <TouchableOpacity style={styles.resend} disabled={timer > 0} onPress={() => setTimer(30)}>
-                <Text style={[timer > 0 ? styles.resendWait : styles.resendText]}>
-                    {timer > 0 ? `Resend code in 00:${timer}` : "Resend code"}
-                </Text>
-            </TouchableOpacity>
+            <Timer timervalue={30} />
 
             <View style={styles.noAccount}>
                 <Text style={styles.noAccountText}>

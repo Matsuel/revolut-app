@@ -17,3 +17,11 @@ export const focusFirst = (inputs: any) => {
         inputs.current[0].focus();
     }
 }
+
+export const checkCodeLength = (value : number[]) => {
+    return value.map(v => !isNaN(v)).every(v => v);
+}
+
+export const checkCode = (value: number[], arrayNum: number[]) => {    
+    return value.every((v, i) => v === arrayNum[i]) && checkCodeLength(value);
+}
