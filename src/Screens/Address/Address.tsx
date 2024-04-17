@@ -81,7 +81,7 @@ const Address = ({ navigation }: any) => {
       <View style={styles.buttons}>
         <ButtonCustom
           title="Continue"
-          nextScreen='BirthDate'
+          nextScreen='Email'
           disabled={inputs.some(input => input.value.length === 0)}
           navigation={navigation}
         />
