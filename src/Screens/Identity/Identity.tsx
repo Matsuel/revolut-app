@@ -1,5 +1,5 @@
-import React from 'react'
-import { View, Text, Image } from 'react-native'
+import React, { useState } from 'react'
+import { View, Text, Image, Modal } from 'react-native'
 import { styles } from './Identity.style'
 import Shield from '../../assets/Shield'
 import Camera from '../../assets/Camera'
@@ -12,6 +12,8 @@ type Instruction = {
 }
 
 const Identity = ({ navigation }: any) => {
+
+    const [showLoader, setShowLoader] = useState<boolean>(false)
 
     const instructions: Instruction[] = [
         {
@@ -52,7 +54,21 @@ const Identity = ({ navigation }: any) => {
                 title='Continue'
                 nextScreen=''
                 navigation={navigation}
+                toDo={() => setShowLoader(true)}
             />
+
+            {showLoader &&
+                <View style={styles.loader}>
+                    <View style={styles.loaderView}>
+                        <View style={styles.loaderWrapper}>
+                            <View style={styles.loaderCircle} />
+                            <Text style={styles.loaderText}>
+                                Done!
+                            </Text>
+                        </View>
+                    </View>
+                </View>
+            }
         </View>
     )
 }
