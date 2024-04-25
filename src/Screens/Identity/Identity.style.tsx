@@ -30,6 +30,7 @@ export const styles = StyleSheet.create({
         alignItems: "flex-start",
         backgroundColor: "#fff",
         borderRadius: 12,
+        marginBottom: "10%",
     },
     instruction: {
         width: "100%",

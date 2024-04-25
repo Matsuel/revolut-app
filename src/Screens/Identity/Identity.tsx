@@ -4,6 +4,7 @@ import { styles } from './Identity.style'
 import Shield from '../../assets/Shield'
 import Camera from '../../assets/Camera'
 import { StatusBar } from 'expo-status-bar'
+import ButtonCustom from '../../Components/ButtonCustom/ButtonCustom'
 
 type Instruction = {
     description: string
@@ -47,6 +48,11 @@ const Identity = ({ navigation }: any) => {
                     ))
                 }
             </View>
+            <ButtonCustom
+                title='Continue'
+                nextScreen=''
+                navigation={navigation}
+            />
         </View>
     )
 }
