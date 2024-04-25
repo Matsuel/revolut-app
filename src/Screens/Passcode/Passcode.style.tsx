@@ -23,4 +23,30 @@ export const styles = StyleSheet.create({
         color: "#777",
         marginTop: 10,
     },
+    
+
+
+    passcodeKeyboard: {
+        position: "absolute",
+        bottom: 0,
+        width: "100%",
+        height: "56%",
+        backgroundColor: "transparent",
+        flexWrap: "wrap",
+        flexDirection: "row",
+    },
+    passcodeKey : {
+        justifyContent: "center",
+        alignItems: "center",
+        borderWidth: 1,
+        borderRadius: 100,
+        borderColor: "transparent",
+    },
+    passcodeKeyText: {
+        fontSize: 24,
+        fontWeight: "700",
+    },
+    arrow: { 
+        transform: [{rotate: '180deg'}] 
+    }
 });
