@@ -1,12 +1,22 @@
 import React, { useEffect, useState } from 'react'
 import { styles } from './Camera.style'
-import { View, Text, Button, TouchableOpacity } from 'react-native'
+import { View, Text, Button, TouchableOpacity, ActivityIndicator } from 'react-native'
 import { CameraType, CameraView, useCameraPermissions } from 'expo-camera/next';
 
 const CameraScreen = ({ navigation }: any) => {
 
     const [facing, setFacing] = useState<CameraType>('back');
     const [permissions, askForPermissions] = useCameraPermissions()
+    const [showLoader, setShowLoader] = useState<boolean>(false)
+
+    useEffect(() => {
+        if (showLoader) {
+            setTimeout(() => {
+                setShowLoader(false)
+                navigation.navigate('Passcode')
+            }, 2000)
+        }
+    }, [showLoader])
 
     function toggleCameraFacing() {
         setFacing(current => (current === 'back' ? 'front' : 'back'));
@@ -36,24 +46,28 @@ const CameraScreen = ({ navigation }: any) => {
                         <TouchableOpacity style={styles.button} onPress={toggleCameraFacing}>
                             <Text style={styles.text}>Flip Camera</Text>
                         </TouchableOpacity>
+                        <TouchableOpacity style={styles.button} onPress={() => setShowLoader(true)}>
+                            <Text style={styles.text}>Done</Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
             </CameraView>
-        </View>
-    );
-}
 
-export default CameraScreen
-
-{/* {showLoader &&
+            {showLoader &&
                 <View style={styles.loader}>
                     <View style={styles.loaderView}>
                         <View style={styles.loaderWrapper}>
-                            <View style={styles.loaderCircle} />
+                            <ActivityIndicator size="large" color="#000" />
                             <Text style={styles.loaderText}>
                                 Done!
                             </Text>
                         </View>
                     </View>
                 </View>
-            } */}
+            }
+        </View>
+    );
+}
+
+export default CameraScreen
+

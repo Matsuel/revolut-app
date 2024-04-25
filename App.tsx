@@ -14,6 +14,7 @@ import Address from './src/Screens/Address/Address';
 import Email from './src/Screens/Email/Email';
 import Identity from './src/Screens/Identity/Identity';
 import Camera from './src/Screens/Camera/Camera';
+import Passcode from './src/Screens/Passcode/Passcode';
 
 const Stack = createNativeStackNavigator();
 
@@ -31,6 +32,11 @@ export default function App() {
         <Stack.Screen
           name="Camera"
           component={Camera}
+          options={{ headerShown: false, gestureEnabled: false }}
+        />
+        <Stack.Screen
+          name="Passcode"
+          component={Passcode}
           options={{ headerShown: false, gestureEnabled: false }}
         />
 
