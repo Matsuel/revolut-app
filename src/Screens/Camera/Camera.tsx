@@ -28,13 +28,15 @@ const CameraScreen = ({ navigation }: any) => {
     return (
         <View style={styles.container}>
             <CameraView style={styles.camera} facing={facing as CameraType}>
-                <View style={styles.faceContainer}>
-                    <View style={styles.face} />
-                </View>
-                <View style={styles.buttonContainer}>
-                    <TouchableOpacity style={styles.button} onPress={toggleCameraFacing}>
-                        <Text style={styles.text}>Flip Camera</Text>
-                    </TouchableOpacity>
+                <View style={styles.cameraBlur}>
+                    <View style={styles.faceContainer}>
+                        <View style={styles.face} />
+                    </View>
+                    <View style={styles.buttonContainer}>
+                        <TouchableOpacity style={styles.button} onPress={toggleCameraFacing}>
+                            <Text style={styles.text}>Flip Camera</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </CameraView>
         </View>

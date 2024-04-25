@@ -24,6 +24,13 @@ export const styles = StyleSheet.create({
         width: "130%",
         height: "100%",
     },
+    cameraBlur: {
+        width: "100%",
+        height: "100%",
+        position: "absolute",
+        zIndex: 1,
+        backgroundColor: "rgba(0,0,0,0.5)",
+    },
     faceContainer: {
         width: "100%",
         height: "100%",
