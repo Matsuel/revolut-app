@@ -10,6 +10,7 @@ type PasscodeKey = {
     backgroundColor: string
 }
 
+// Faire un booleen random pour utiliser ce meme composant après et pouvoir lui passer une valier qui gere les erreurs
 const Passcode = () => {
 
     const { width, height } = Dimensions.get('window')
