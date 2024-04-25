@@ -47,6 +47,7 @@ export const styles = StyleSheet.create({
         fontWeight: "700",
     },
     arrow: { 
+        color: "#000",
         transform: [{rotate: '180deg'}] 
     }
 });

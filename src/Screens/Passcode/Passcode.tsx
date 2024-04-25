@@ -2,6 +2,7 @@ import React from 'react'
 import { View, Text, TouchableOpacity, Dimensions } from 'react-native'
 import { styles } from './Passcode.style'
 import LeftArrow from '../../assets/LeftArrow'
+import Delete from '../../assets/Delete'
 
 type PasscodeKey = {
     value: string
@@ -100,15 +101,19 @@ const Passcode = () => {
                         }]}
                     >
                         {key.value === "Arrow" ?
-                        <View style={styles.arrow}>
-                            <LeftArrow color={key.color} />
-                        </View>
-                            :
-                            <Text
-                                style={[styles.passcodeKeyText, { color: key.color }]}
-                            >
-                                {key.value}
-                            </Text>
+                            <View style={styles.arrow}>
+                                <LeftArrow color={key.color} />
+                            </View>
+                            : key.value === "delete" ?
+                                <View style={styles.arrow}>
+                                    <Delete />
+                                </View>
+                                :
+                                <Text
+                                    style={[styles.passcodeKeyText, { color: key.color }]}
+                                >
+                                    {key.value}
+                                </Text>
                         }
                     </TouchableOpacity>
                 ))}
