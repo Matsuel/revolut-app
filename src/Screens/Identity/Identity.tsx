@@ -13,8 +13,6 @@ type Instruction = {
 
 const Identity = ({ navigation }: any) => {
 
-    const [showLoader, setShowLoader] = useState<boolean>(false)
-
     const instructions: Instruction[] = [
         {
             description: "It won't be your profile picture",
@@ -52,23 +50,10 @@ const Identity = ({ navigation }: any) => {
             </View>
             <ButtonCustom
                 title='Continue'
-                nextScreen=''
+                nextScreen='Camera'
                 navigation={navigation}
-                toDo={() => setShowLoader(true)}
             />
 
-            {showLoader &&
-                <View style={styles.loader}>
-                    <View style={styles.loaderView}>
-                        <View style={styles.loaderWrapper}>
-                            <View style={styles.loaderCircle} />
-                            <Text style={styles.loaderText}>
-                                Done!
-                            </Text>
-                        </View>
-                    </View>
-                </View>
-            }
         </View>
     )
 }
