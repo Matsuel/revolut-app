@@ -16,7 +16,7 @@ const Loader = ({ navigation, showLoader, setShowLoader }: LoaderProps) => {
             setTimeout(() => {
                 setShowLoader(false)
                 navigation.navigate('Passcode')
-            }, 2000)
+            }, 1000)
         }
     }, [showLoader])
 

@@ -18,7 +18,15 @@ import Passcode from './src/Screens/Passcode/Passcode';
 
 const Stack = createNativeStackNavigator();
 
+// Faire un truc qui get les ecrans de manière dynamique
+
 export default function App() {
+
+  const options = {
+    headerShown: false,
+    gestureEnabled: false
+  }
+
   return (
     <NavigationContainer>
       <StatusBar style="light" />
@@ -27,68 +35,68 @@ export default function App() {
         <Stack.Screen
           name="Identity"
           component={Identity}
-          options={{ headerShown: false, gestureEnabled: false }}
+          options={options}
         />
         <Stack.Screen
           name="Camera"
           component={Camera}
-          options={{ headerShown: false, gestureEnabled: false }}
+          options={options}
         />
         <Stack.Screen
           name="Passcode"
           component={Passcode}
-          options={{ headerShown: false, gestureEnabled: false }}
+          options={options}
         />
 
         <Stack.Screen
           name="SplashScreen"
           component={SplashScreen}
-          options={{ headerShown: false, gestureEnabled: false }}
+          options={options}
         />
         <Stack.Screen
           name="Welcome"
           component={Welcome}
-          options={{ headerShown: false, gestureEnabled: false }}
+          options={options}
         />
         <Stack.Screen
           name="Phone"
           component={Phone}
-          options={{ headerShown: false, gestureEnabled: false }}
+          options={options}
         />
         <Stack.Screen
           name="CodeConfirmation"
           component={CodeConfirmation}
-          options={{ headerShown: false, gestureEnabled: false }}
+          options={options}
         />
         <Stack.Screen
           name="AcceptNotifications"
           component={AcceptNotifications}
-          options={{ headerShown: false, gestureEnabled: false }}
+          options={options}
         />
         <Stack.Screen
           name="Country"
           component={Country}
-          options={{ headerShown: false, gestureEnabled: false }}
+          options={options}
         />
         <Stack.Screen
           name="Names"
           component={Names}
-          options={{ headerShown: false, gestureEnabled: false }}
+          options={options}
         />
         <Stack.Screen
           name="BirthDate"
           component={BirthDate}
-          options={{ headerShown: false, gestureEnabled: false }}
+          options={options}
         />
         <Stack.Screen
           name="Address"
           component={Address}
-          options={{ headerShown: false, gestureEnabled: false }}
+          options={options}
         />
         <Stack.Screen
           name="Email"
           component={Email}
-          options={{ headerShown: false, gestureEnabled: false }}
+          options={options}
         />
 
       </Stack.Navigator>
