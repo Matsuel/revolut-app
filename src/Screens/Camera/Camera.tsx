@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { styles } from './Camera.style'
 import { View, Text, Button, TouchableOpacity, ActivityIndicator } from 'react-native'
 import { CameraType, CameraView, useCameraPermissions } from 'expo-camera/next';
+import Loader from './Loader/Loader';
 
 const CameraScreen = ({ navigation }: any) => {
 
@@ -9,14 +10,7 @@ const CameraScreen = ({ navigation }: any) => {
     const [permissions, askForPermissions] = useCameraPermissions()
     const [showLoader, setShowLoader] = useState<boolean>(false)
 
-    useEffect(() => {
-        if (showLoader) {
-            setTimeout(() => {
-                setShowLoader(false)
-                navigation.navigate('Passcode')
-            }, 2000)
-        }
-    }, [showLoader])
+
 
     function toggleCameraFacing() {
         setFacing(current => (current === 'back' ? 'front' : 'back'));
@@ -53,18 +47,10 @@ const CameraScreen = ({ navigation }: any) => {
                 </View>
             </CameraView>
 
-            {showLoader &&
-                <View style={styles.loader}>
-                    <View style={styles.loaderView}>
-                        <View style={styles.loaderWrapper}>
-                            <ActivityIndicator size="large" color="#000" />
-                            <Text style={styles.loaderText}>
-                                Done!
-                            </Text>
-                        </View>
-                    </View>
-                </View>
-            }
+            <Loader
+                setShowLoader={setShowLoader}
+                showLoader={showLoader}
+                navigation={navigation} />
         </View>
     );
 }
