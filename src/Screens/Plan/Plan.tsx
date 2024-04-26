@@ -146,6 +146,7 @@ const Plan = ({ navigation }: any) => {
             <PlanDetails
                 PlanData={PlanData}
                 selectedPlan={selectedPlan}
+                navigation={navigation}
             />
 
 

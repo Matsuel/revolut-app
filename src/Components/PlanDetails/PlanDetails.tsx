@@ -6,9 +6,10 @@ import { styles } from './PlanDetails.style'
 interface PlanDetailsProps {
     PlanData: PlanType[]
     selectedPlan: string
+    navigation: any
 }
 
-const PlanDetails = ({ PlanData, selectedPlan }: PlanDetailsProps) => {
+const PlanDetails = ({ PlanData, selectedPlan, navigation }: PlanDetailsProps) => {
     return (
         <>
             {PlanData.map((plan, i) => (
@@ -69,7 +70,7 @@ const PlanDetails = ({ PlanData, selectedPlan }: PlanDetailsProps) => {
                         )}
                     />
                     <View style={styles.bottom}>
-                        <TouchableOpacity style={styles.buttonBottom}>
+                        <TouchableOpacity style={styles.buttonBottom} onPress={() => navigation.navigate('GetCard', { plan: plan.details.name })}>
                             <Text style={styles.buttonText}>
                                 {plan.textButton}
                             </Text>
