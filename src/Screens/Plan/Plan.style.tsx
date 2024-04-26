@@ -51,8 +51,13 @@ export const styles = StyleSheet.create({
         padding: 5,
         backgroundColor: "#fff",
     },
-    planText: {
+    planTextActive: {
         color: "#000",
+        fontSize: 14,
+        fontWeight: "800",
+    },
+    planText: {
+        color: "#bcc4cc",
         fontSize: 14,
         fontWeight: "800",
     },
@@ -75,33 +80,75 @@ export const styles = StyleSheet.create({
     },
     planName: {
         color: "#fff",
-        fontSize: 24,
+        fontSize: 32,
         fontWeight: "700",
+        marginBottom: "3%"
     },
     planPrice: {
-        color: "#fff",
+        color: "#bcc4cc",
         fontSize: 18,
         fontWeight: "700",
+        marginBottom: "2%"
     },
     planDescription: {
-        color: "#fff",
+        color: "#bcc4cc",
         fontSize: 14,
         fontWeight: "700",
+        marginBottom: "2%"
     },
     button: {
         position: "absolute",
-        width: "25%",
+        width: "auto",
         right: 10,
-        top: 10,
+        top: "15%",
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#fff",
-        borderRadius: 12,
+        borderRadius: 15,
+        padding: 5,
+        gap: 5,
+    },
+    buttonIcon: {
+        width: 13,
+        height: 13,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#f7f7f7",
+        borderTopLeftRadius: 12,
+        borderBottomLeftRadius: 12,
     },
     planShortText: {
         color: "#000",
-        fontSize: 14,
+        fontSize: 13,
+        fontWeight: "700",
+    },
+
+    features: {
+        width: "100%",
+        height: "auto",
+        backgroundColor: "#fff",
+        borderRadius: 12,
+        padding: 10,
+        marginTop: "5%",
+    },
+    featuresTitle: {
+        color: "#bcc4cc",
+        fontSize: 18,
+        fontWeight: "700",
+        marginBottom: "2%"
+    },
+    feature: {
+        width: "100%",
+        height: "auto",
+        flexDirection: "row",
+        justifyContent: "flex-start",
+        alignItems: "center",
+        marginBottom: "2%"
+    },
+    featureTitle: {
+        color: "#000",
+        fontSize: 16,
         fontWeight: "700",
     },
 });

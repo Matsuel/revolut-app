@@ -145,7 +145,7 @@ const Plan = ({ navigation }: any) => {
                         style={selectedPlan === plan ? styles.planSelected : styles.plan}
                         onPress={() => setSelectedPlan(plan)}
                     >
-                        <Text style={styles.planText}>
+                        <Text style={selectedPlan === plan ? styles.planTextActive : styles.planText}>
                             {plan}
                         </Text>
                     </TouchableOpacity>
@@ -161,6 +161,8 @@ const Plan = ({ navigation }: any) => {
                             data={[plan]}
                             keyExtractor={(item, index) => index.toString()}
                             renderItem={({ item }) => (
+                                console.log(item),
+                                console.log(item.features),
                                 <View style={styles.planInfos}>
                                     <View style={styles.planDetails}>
                                         <Text style={styles.planName}>
@@ -173,26 +175,36 @@ const Plan = ({ navigation }: any) => {
                                             {item.details.description}
                                         </Text>
                                         <View style={styles.button}>
-                                            {item.details.icon}
+                                            <View style={styles.buttonIcon}>
+                                                {item.details.icon}
+                                            </View>
                                             <Text style={styles.planShortText}>
                                                 {item.details.shortText}
                                             </Text>
                                         </View>
                                     </View>
 
-                                    {/* <View style={styles.features}>
+                                    <View style={styles.features}>
+                                        <Text style={styles.featuresTitle}>
+                                            Top features
+                                        </Text>
                                         {item.features.map((feature, i) => (
+                                            console.log(feature),
                                             <View key={i} style={styles.feature}>
-                                                <Text style={styles.featureTitle}>
+                                                <View style={styles.featureIcon}>
                                                     {feature.icon}
-                                                    {feature.title}
-                                                </Text>
-                                                <Text style={styles.featureSubtitle}>
-                                                    {feature.subtitle}
-                                                </Text>
+                                                </View>
+                                                <View style={styles.featureTexts}>
+                                                    <Text style={styles.featureTitle}>
+                                                        {feature.title}
+                                                    </Text>
+                                                    <Text style={styles.featureSubtitle}>
+                                                        {feature.subtitle}
+                                                    </Text>
+                                                </View>
                                             </View>
                                         ))}
-                                    </View> */}
+                                    </View>
                                 </View>
 
                             )}
