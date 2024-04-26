@@ -79,7 +79,6 @@ const PlanDetails = ({ PlanData, selectedPlan }: PlanDetailsProps) => {
                                 {plan.alert}
                             </Text>
                         }
-
                     </View>
                 </View>
             ))}
