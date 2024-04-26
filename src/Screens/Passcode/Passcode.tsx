@@ -104,17 +104,20 @@ const Passcode = ({ navigation, route }: PasscodeProps) => {
                     <TouchableOpacity
                         key={index ** 2}
                         style={[styles.passcodeKey, {
-                            backgroundColor: key.backgroundColor,
+                            // backgroundColor: key.backgroundColor,
                             width: width * 0.9 / 3,
                             height: width * 0.9 / 3,
                         }]}
                     >
                         {key.value === "Arrow" ?
-                            <View style={styles.arrow}>
+                            <View style={[
+                                styles.arrow,
+                                { backgroundColor: key.backgroundColor }
+                            ]}>
                                 <LeftArrow color={key.color} />
                             </View>
                             : key.value === "delete" ?
-                                <View style={styles.arrow}>
+                                <View style={styles.delete}>
                                     <Delete />
                                 </View>
                                 :

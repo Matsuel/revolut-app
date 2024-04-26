@@ -47,7 +47,28 @@ export const styles = StyleSheet.create({
         fontWeight: "700",
     },
     arrow: { 
+        width: 70,
+        height: 70,
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: 100,
         color: "#000",
         transform: [{rotate: '180deg'}] 
-    }
+    },
+    delete: {
+        width: 24,
+        height: 24,
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: 100,
+        backgroundColor: "transparent",
+    },
+    key: {
+        width: 100,
+        height: 100,
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: 100,
+        backgroundColor: "#000",
+    },
 });
