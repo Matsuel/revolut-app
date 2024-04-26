@@ -16,6 +16,7 @@ import Identity from './src/Screens/Identity/Identity';
 import Camera from './src/Screens/Camera/Camera';
 import Passcode from './src/Screens/Passcode/Passcode';
 import Tailor from './src/Screens/Tailor/Tailor';
+import Plan from './src/Screens/Plan/Plan';
 
 const Stack = createNativeStackNavigator();
 
@@ -51,6 +52,11 @@ export default function App() {
         <Stack.Screen
           name="Tailor"
           component={Tailor}
+          options={options}
+        />
+        <Stack.Screen
+          name="Plan"
+          component={Plan}
           options={options}
         />
 

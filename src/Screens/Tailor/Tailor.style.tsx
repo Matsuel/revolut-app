@@ -17,4 +17,27 @@ export const styles = StyleSheet.create({
         fontWeight: "700",
         marginTop: "25%",
     },
+    paragraph: {
+        width: "90%",
+        color: "#000",
+        fontSize: 18,
+        marginTop: "5%",
+        fontWeight: "700",
+    },
+    learnMore: {
+        width: "90%",
+        marginTop: "5%",        
+    },
+    learnMoreText: {
+        color: "#007aff",
+        fontSize: 18,
+        fontWeight: "700",
+        textDecorationLine: "underline",
+    },
+    image: {
+        width: 237,
+        height: 188,
+        marginTop: "25%",
+        marginBottom: "30%",
+    }
 });
