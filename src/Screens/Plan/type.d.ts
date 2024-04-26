@@ -17,7 +17,8 @@ export type TopFeatures = {
 export type PlanType = {
     details: details,
     features: TopFeatures[],
-    textButton: string
+    textButton: string,
+    alert?: string
 }
 
 

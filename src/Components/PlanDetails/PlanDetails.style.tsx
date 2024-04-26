@@ -114,4 +114,32 @@ export const styles = StyleSheet.create({
         fontWeight: "500",
         marginBottom: "2%"
     },
+
+    bottom: {
+        position: "absolute",
+        width: "100%",
+        backgroundColor: "transparent",
+        bottom: -100,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    buttonBottom: {
+        width: "90%",
+        height: 50,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#000",
+        borderRadius: 50,
+        marginBottom: "5%",
+    },
+    buttonText: {
+        color: "#fff",
+        fontSize: 18,
+        fontWeight: "700",
+    },
+    alert: {
+        color: "#bcc4cc",
+        fontSize: 14,
+        fontWeight: "700",
+    },
 });

@@ -1,6 +1,6 @@
 import React from 'react'
 import { PlanType } from '../../Screens/Plan/type'
-import { View, Text, FlatList } from 'react-native'
+import { View, Text, FlatList, TouchableOpacity } from 'react-native'
 import { styles } from './PlanDetails.style'
 
 interface PlanDetailsProps {
@@ -63,11 +63,24 @@ const PlanDetails = ({ PlanData, selectedPlan }: PlanDetailsProps) => {
                                         </View>
                                     ))}
 
-                                    
+
                                 </View>
                             </>
                         )}
                     />
+                    <View style={styles.bottom}>
+                        <TouchableOpacity style={styles.buttonBottom}>
+                            <Text style={styles.buttonText}>
+                                {plan.textButton}
+                            </Text>
+                        </TouchableOpacity>
+                        {plan.alert &&
+                            <Text style={styles.alert}>
+                                {plan.alert}
+                            </Text>
+                        }
+
+                    </View>
                 </View>
             ))}
         </>

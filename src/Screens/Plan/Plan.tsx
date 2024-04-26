@@ -44,7 +44,8 @@ const Plan = ({ navigation }: any) => {
                     icon: <Plus />
                 }
             ],
-            textButton: "Get Metal for 16,99€/month"
+            textButton: "Get Metal for 16,99€/month",
+            alert: "This is a 12 months plan. By proceeding you have read and agreed to the Terms & Conditions and Insurance documents."
         },
         {
             details: {
@@ -71,7 +72,8 @@ const Plan = ({ navigation }: any) => {
                     icon: <Plus />
                 }
             ],
-            textButton: "Start your free trial"
+            textButton: "Start your free trial",
+            alert: "This is a 12 months plan. By proceeding you have read and agreed to the Terms & Conditions and Insurance documents."
         },
         {
             details: {
@@ -93,7 +95,8 @@ const Plan = ({ navigation }: any) => {
                     icon: <Bag />
                 }
             ],
-            textButton: "Start your free trial"
+            textButton: "Start your free trial",
+            alert: "This is a 12 months plan. By proceeding you have read and agreed to the Terms & Conditions and Insurance documents."
         },
         {
             details: {
@@ -140,12 +143,13 @@ const Plan = ({ navigation }: any) => {
                 setSelectedPlan={setSelectedPlan}
             />
 
-            
-
             <PlanDetails
                 PlanData={PlanData}
                 selectedPlan={selectedPlan}
             />
+
+
+
         </View>
     )
 }
