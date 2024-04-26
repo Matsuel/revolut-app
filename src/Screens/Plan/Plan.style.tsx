@@ -55,5 +55,53 @@ export const styles = StyleSheet.create({
         color: "#000",
         fontSize: 14,
         fontWeight: "800",
-    }
+    },
+
+    planDetailsContainer: {
+        width: "90%",
+        marginTop: "10%",
+    },
+    planInfos: {
+        width: "100%",
+        height: "auto",
+    },
+    planDetails: {
+        width: "100%",
+        height: "auto",
+        backgroundColor: "#000",
+        borderRadius: 12,
+        padding: 10,
+        marginBottom: 10,
+    },
+    planName: {
+        color: "#fff",
+        fontSize: 24,
+        fontWeight: "700",
+    },
+    planPrice: {
+        color: "#fff",
+        fontSize: 18,
+        fontWeight: "700",
+    },
+    planDescription: {
+        color: "#fff",
+        fontSize: 14,
+        fontWeight: "700",
+    },
+    button: {
+        position: "absolute",
+        width: "25%",
+        right: 10,
+        top: 10,
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#fff",
+        borderRadius: 12,
+    },
+    planShortText: {
+        color: "#000",
+        fontSize: 14,
+        fontWeight: "700",
+    },
 });
