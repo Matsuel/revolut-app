@@ -61,7 +61,8 @@ type TopFeatures = {
 
 type Plan = {
     details: details,
-    features: TopFeatures[]
+    features: TopFeatures[],
+    textButton: string
 }
 
 const PlanData: Plan[] = [
@@ -89,7 +90,8 @@ const PlanData: Plan[] = [
                 subtitle: "Worldwide travel insurance for you and your family",
                 icon: "🌍"
             }
-        ]
+        ],
+        textButton: "Get Metal for 16,99€/month"
     },
     {
         details: {
@@ -115,7 +117,8 @@ const PlanData: Plan[] = [
                 subtitle: "Worldwide travel insurance for you and your family",
                 icon: "🌍"
             }
-        ]
+        ],
+        textButton: "Start your free trial"
     },
     {
         details: {
@@ -136,7 +139,8 @@ const PlanData: Plan[] = [
                 subtitle: "If your phone, talet, or other eligible item is stolen or accidentally damaged, we'll reimburse you up to 1,000€/year, for up to 365 days after purchase",
                 icon: "🛡️"
             }
-        ]
+        ],
+        textButton: "Start your free trial"
     },
     {
         details: {
@@ -162,6 +166,7 @@ const PlanData: Plan[] = [
                 subtitle: "Create a Revolut <18 account for anyone aged 6-17",
                 icon: "👨‍👩‍👧‍👦"
             }
-        ]
+        ],
+        textButton: "Get Standard for free"
     }
 ]
