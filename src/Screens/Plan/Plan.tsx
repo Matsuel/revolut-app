@@ -9,6 +9,7 @@ import Bar from '../../assets/Bar'
 import Plus from '../../assets/Plus'
 import Bag from '../../assets/Bag'
 import { PlanType } from './type'
+import PlanDetails from '../../Components/PlanDetails/PlanDetails'
 
 const Plan = ({ navigation }: any) => {
 
@@ -153,73 +154,12 @@ const Plan = ({ navigation }: any) => {
                 ))}
             </View>
 
-            {
-                PlanData.map((plan, i) => (
-                    plan.details.name === selectedPlan &&
-                    <View key={i} style={styles.planDetailsContainer}>
-                        <FlatList
-                            data={[plan]}
-                            keyExtractor={(item, index) => index.toString()}
-                            renderItem={({ item }) => (
-                                console.log(item),
-                                console.log(item.features),
-                                <View style={styles.planInfos}>
-                                    <View style={styles.planDetails}>
-                                        <Text style={styles.planName}>
-                                            {item.details.name}
-                                        </Text>
-                                        <Text style={styles.planPrice}>
-                                            {item.details.price}
-                                        </Text>
-                                        <Text style={styles.planDescription}>
-                                            {item.details.description}
-                                        </Text>
-                                        <View style={styles.button}>
-                                            <View style={styles.buttonIcon}>
-                                                {item.details.icon}
-                                            </View>
-                                            <Text style={styles.planShortText}>
-                                                {item.details.shortText}
-                                            </Text>
-                                        </View>
-                                    </View>
-
-                                    <View style={styles.features}>
-                                        <Text style={styles.featuresTitle}>
-                                            Top features
-                                        </Text>
-                                        {item.features.map((feature, i) => (
-                                            console.log(feature),
-                                            <View key={i} style={styles.feature}>
-                                                <View style={styles.featureIcon}>
-                                                    {feature.icon}
-                                                </View>
-                                                <View style={styles.featureTexts}>
-                                                    <Text style={styles.featureTitle}>
-                                                        {feature.title}
-                                                    </Text>
-                                                    <Text style={styles.featureSubtitle}>
-                                                        {feature.subtitle}
-                                                    </Text>
-                                                </View>
-                                            </View>
-                                        ))}
-                                    </View>
-                                </View>
-
-                            )}
-                        />
-                    </View>
-                ))
-
-
-
-
-            }
+            <PlanDetails
+                PlanData={PlanData}
+                selectedPlan={selectedPlan}
+            />
         </View>
-
     )
 }
 
 export default Plan
-
