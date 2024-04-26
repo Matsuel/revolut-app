@@ -18,7 +18,9 @@ const Loader = ({ navigation, showLoader, setShowLoader,setShowCamera }: LoaderP
             setTimeout(() => {
                 setShowLoader(false)
                 navigation.navigate('Passcode',{
-                    random: false
+                    title: "Create Passcode",
+                    subtitle: "The passcode should be 6 to 12 digits long",
+                    random: false,
                 })
             }, 1000)
         }

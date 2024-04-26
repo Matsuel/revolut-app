@@ -8,13 +8,14 @@ import NumberKeyboard from '../../Components/NumberKeyboard/NumberKeyboard'
 interface PasscodeProps {
     navigation: any
     route: any
+    code?: string
 }
 
 const Passcode = ({ navigation, route }: PasscodeProps) => {
 
     const [passcode, setPasscode] = useState<string>("")
 
-    const { random } = route.params    
+    const { random, title, subtitle } = route.params    
 
     const handleKey = (key: string) => {
         if (key === "delete") {
@@ -27,10 +28,10 @@ const Passcode = ({ navigation, route }: PasscodeProps) => {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>
-                Create Passcode
+                {title}
             </Text>
             <Text style={styles.subtitle}>
-                The passcode should be 6 to 12 digits long
+                {subtitle}
             </Text>
 
             <TextInput
