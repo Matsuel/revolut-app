@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
     planDetailsContainer: {
         width: "100%",
-        marginTop: "10%",
+        marginTop: "7%",
     },
     planInfos: {
         width: "100%",
@@ -119,7 +119,7 @@ export const styles = StyleSheet.create({
         position: "absolute",
         width: "100%",
         backgroundColor: "transparent",
-        bottom: -90,
+        bottom: -100,
         justifyContent: "center",
         alignItems: "center",
     },
