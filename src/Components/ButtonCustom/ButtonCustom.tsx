@@ -8,13 +8,14 @@ interface Props {
     title: string;
     disabled?: boolean;
     toDo?: Function;
+    params?: any;
 }
 
-const ButtonCustom = ({ navigation, nextScreen, title, disabled, toDo }: Props) => {
+const ButtonCustom = ({ navigation, nextScreen, title, disabled, toDo, params }: Props) => {
     return (
         <TouchableOpacity 
         style={[styles.button1, disabled && styles.buttonDisabled]} 
-        onPress={() => nextScreen !== '' ? navigation.navigate(nextScreen) : (toDo && toDo())}
+        onPress={() => nextScreen !== '' ? navigation.navigate(nextScreen, params && params) : (toDo && toDo())}
         disabled={disabled ? true : false}
         >
             <Text style={styles.buttonText1}>

@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { View, Text, Image, Modal } from 'react-native'
+import React from 'react'
+import { View, Text, Image, Platform } from 'react-native'
 import { styles } from './Identity.style'
 import Shield from '../../assets/Shield'
 import Camera from '../../assets/Camera'
@@ -50,8 +50,13 @@ const Identity = ({ navigation }: any) => {
             </View>
             <ButtonCustom
                 title='Continue'
-                nextScreen='Camera'
+                nextScreen={Platform.OS === 'ios' ? 'Camera' : 'Passcode'}
                 navigation={navigation}
+                params={{
+                    title: "Create Passcode",
+                    subtitle: "The passcode should be 6 to 12 digits long",
+                    random: false,
+                }}
             />
 
         </View>
