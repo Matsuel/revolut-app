@@ -1,5 +1,5 @@
-import React from 'react'
-import { View, Text, TouchableOpacity, Dimensions } from 'react-native'
+import React, { useState } from 'react'
+import { View, Text, TouchableOpacity, Dimensions, TextInput } from 'react-native'
 import { styles } from './Passcode.style'
 import LeftArrow from '../../assets/LeftArrow'
 import Delete from '../../assets/Delete'
@@ -18,12 +18,14 @@ interface PasscodeProps {
 // Faire un booleen random pour utiliser ce meme composant après et pouvoir lui passer une valier qui gere les erreurs
 const Passcode = ({ navigation, route }: PasscodeProps) => {
 
+    const [passcode, setPasscode] = useState<string>("")
+
     const { random } = route.params
     console.log(random)
 
     const { width, height } = Dimensions.get('window')
 
-    const passcodeKeys: PasscodeKey[] = [
+    let passcodeKeys: PasscodeKey[] = [
         {
             value: "1",
             color: "#000",
@@ -86,7 +88,23 @@ const Passcode = ({ navigation, route }: PasscodeProps) => {
         },
     ]
 
+    const handleKey = (key: string) => {
+        if (key === "delete") {
+            setPasscode(passcode.slice(0, -1))
+        } else if (passcode.length < 12 && key !== "Arrow") {
+            setPasscode(passcode + key.toString())
+        }
+    }
 
+    const randomizePasskeys = () => {
+        const keys = passcodeKeys.slice(0, 10)
+        for (let i = keys.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [keys[i], keys[j]] = [keys[j], keys[i]];
+        }
+        keys.push(passcodeKeys[10])
+        return keys
+    }
 
     return (
         <View style={styles.container}>
@@ -97,6 +115,17 @@ const Passcode = ({ navigation, route }: PasscodeProps) => {
                 The passcode should be 6 to 12 digits long
             </Text>
 
+            <TextInput
+                style={styles.passcodeInput}
+                placeholder="Enter Passcode"
+                secureTextEntry={true}
+                maxLength={12}
+                value={passcode}
+                onChangeText={setPasscode}
+                showSoftInputOnFocus={false}
+                caretHidden={true}
+            />
+
 
             {/* Composant à créer */}
             <View style={styles.passcodeKeyboard}>
@@ -104,10 +133,10 @@ const Passcode = ({ navigation, route }: PasscodeProps) => {
                     <TouchableOpacity
                         key={index ** 2}
                         style={[styles.passcodeKey, {
-                            // backgroundColor: key.backgroundColor,
                             width: width * 0.9 / 3,
                             height: width * 0.9 / 3,
                         }]}
+                        onPress={() => handleKey(key.value)}
                     >
                         {key.value === "Arrow" ?
                             <View style={[

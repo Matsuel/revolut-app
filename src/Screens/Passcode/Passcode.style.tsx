@@ -23,6 +23,19 @@ export const styles = StyleSheet.create({
         color: "#777",
         marginTop: 10,
     },
+
+    passcodeInput: {
+        width: "100%",
+        height: 100,
+        backgroundColor: "transparent",
+        borderRadius: 10,
+        marginTop: 60,
+        marginBottom: 20,
+        fontSize: 24,
+        fontWeight: "700",
+        color: "#bcc4cc",
+        textAlign: "center",
+    },
     
 
 
