@@ -28,13 +28,13 @@ export const styles = StyleSheet.create({
         marginTop: "5%",
     },
     plans: {
-        width: "90%",
+        width: "100%",
         marginTop: "10%",
         flexDirection: "row",
         justifyContent: "space-between",
     },
     plan: {
-        width: "24%",
+        width: "25%",
         height: 40,
         justifyContent: "center",
         alignItems: "center",
@@ -43,7 +43,7 @@ export const styles = StyleSheet.create({
         backgroundColor: "transparent",
     },
     planSelected: {
-        width: "24%",
+        width: "25%",
         height: 40,
         justifyContent: "center",
         alignItems: "center",
