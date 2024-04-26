@@ -9,6 +9,7 @@ const CameraScreen = ({ navigation }: any) => {
     const [facing, setFacing] = useState<CameraType>('back');
     const [permissions, askForPermissions] = useCameraPermissions()
     const [showLoader, setShowLoader] = useState<boolean>(false)
+    const [showCamera, setShowCamera] = useState<boolean>(true)
 
 
 
@@ -31,6 +32,7 @@ const CameraScreen = ({ navigation }: any) => {
 
     return (
         <View style={styles.container}>
+            {showCamera && 
             <CameraView style={styles.camera} facing={facing as CameraType}>
                 <View style={styles.cameraBlur}>
                     <View style={styles.faceContainer}>
@@ -46,11 +48,14 @@ const CameraScreen = ({ navigation }: any) => {
                     </View>
                 </View>
             </CameraView>
+            }
 
             <Loader
                 setShowLoader={setShowLoader}
                 showLoader={showLoader}
-                navigation={navigation} />
+                navigation={navigation}
+                setShowCamera={setShowCamera}
+                 />
         </View>
     );
 }

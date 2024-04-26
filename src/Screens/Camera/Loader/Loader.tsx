@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { View, Text, ActivityIndicator } from 'react-native'
 import { styles } from './Loader.style'
 
@@ -6,16 +6,20 @@ interface LoaderProps {
     navigation: any
     showLoader: boolean
     setShowLoader: Function
+    setShowCamera: Function
 }
 
 
-const Loader = ({ navigation, showLoader, setShowLoader }: LoaderProps) => {
+const Loader = ({ navigation, showLoader, setShowLoader,setShowCamera }: LoaderProps) => {
 
     useEffect(() => {
         if (showLoader) {
+            setShowCamera(false)
             setTimeout(() => {
                 setShowLoader(false)
-                navigation.navigate('Passcode')
+                navigation.navigate('Passcode',{
+                    random: false
+                })
             }, 1000)
         }
     }, [showLoader])
