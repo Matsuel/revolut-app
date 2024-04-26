@@ -35,7 +35,7 @@ const Plan = ({ navigation }: any) => {
                             {plan}
                         </Text>
                     </TouchableOpacity>
-                    
+
                 ))}
 
             </View>
@@ -44,3 +44,124 @@ const Plan = ({ navigation }: any) => {
 }
 
 export default Plan
+
+type details = {
+    name: string,
+    price: string,
+    description: string
+    shortText: string
+    icon: string
+}
+
+type TopFeatures = {
+    title: string,
+    subtitle: string,
+    icon: string
+}
+
+type Plan = {
+    details: details,
+    features: TopFeatures[]
+}
+
+const PlanData: Plan[] = [
+    {
+        details: {
+            name: "Metal",
+            price: "16,99€/month",
+            description: "The ultimate experience",
+            shortText: "Popular",
+            icon: "🚀"
+        },
+        features: [
+            {
+                title: "Unlimited foreign exchange",
+                subtitle: "Get fee-free currency exchange Mon-Fri, in +36 currencies",
+                icon: "💱"
+            },
+            {
+                title: "Commission-free stock trading",
+                subtitle: "10 commission-free trades per month. Others fees may apply. Capital at risk",
+                icon: "💹"
+            },
+            {
+                title: "International travel insurance",
+                subtitle: "Worldwide travel insurance for you and your family",
+                icon: "🌍"
+            }
+        ]
+    },
+    {
+        details: {
+            name: "Premium",
+            price: "1 month free then 9,99€/month",
+            description: "Ticket to a global lifestyle",
+            shortText: "Special offer",
+            icon: "🎁"
+        },
+        features: [
+            {
+                title: "Unlimited foreign exchange",
+                subtitle: "Get fee-free currency exchange Mon-Fri, in +36 currencies",
+                icon: "💱"
+            },
+            {
+                title: "Commission-free stock trading",
+                subtitle: "10 commission-free trades per month. Others fees may apply. Capital at risk",
+                icon: "💹"
+            },
+            {
+                title: "International travel insurance",
+                subtitle: "Worldwide travel insurance for you and your family",
+                icon: "🌍"
+            }
+        ]
+    },
+    {
+        details: {
+            name: "Plus",
+            price: "3,99€/month",
+            description: "Best for everyday spending",
+            shortText: "Special offer",
+            icon: "🎉"
+        },
+        features: [
+            {
+                title: "Commission-free stock trading",
+                subtitle: "10 commission-free trades per month. Others fees may apply. Capital at risk",
+                icon: "💹"
+            },
+            {
+                title: "Purchase protection",
+                subtitle: "If your phone, talet, or other eligible item is stolen or accidentally damaged, we'll reimburse you up to 1,000€/year, for up to 365 days after purchase",
+                icon: "🛡️"
+            }
+        ]
+    },
+    {
+        details: {
+            name: "Standard",
+            price: "Free",
+            description: "Just the basics",
+            shortText: "Active",
+            icon: "🔓"
+        },
+        features: [
+            {
+                title: "Interbank exchange rate",
+                subtitle: "Exchange in 36+ currencies up to 1,000€ per month with no hidden fees",
+                icon: "💱"
+            },
+            {
+                title: "Commission-free stock trading",
+                subtitle: "1 commission-free trades per month. Others fees may apply. Capital at risk",
+                icon: "💹"
+            },
+            {
+                title: "Revolut <18 accounts",
+                subtitle: "Create a Revolut <18 account for anyone aged 6-17",
+                icon: "👨‍👩‍👧‍👦"
+            }
+        ]
+    }
+]
