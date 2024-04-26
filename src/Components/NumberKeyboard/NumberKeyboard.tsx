@@ -82,10 +82,22 @@ const NumberKeyboard = ({ passcode, handleKey, random, navigation }: NumberKeybo
         },
     ]
 
-    console.log(random)
-    console.log(navigation)
-
     const { width } = Dimensions.get("window")
+
+    const randomizeKeyboard = () => {
+        let shuffledKeys = passcodeKeys.slice(0, 11).sort(() => Math.random() - 0.5)
+        shuffledKeys.push(passcodeKeys[11])
+        let deleteIndex = shuffledKeys.findIndex(key => key.value === "delete")
+        const temp = shuffledKeys[9]
+        shuffledKeys[9] = shuffledKeys[deleteIndex]
+        shuffledKeys[deleteIndex] = temp
+        passcodeKeys = shuffledKeys
+        
+    }
+
+    if (random) {
+        randomizeKeyboard()
+    }
 
     return (
         < View style={styles.passcodeKeyboard} >
