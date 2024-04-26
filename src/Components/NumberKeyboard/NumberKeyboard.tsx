@@ -12,13 +12,13 @@ type PasscodeKey = {
 
 interface NumberKeyboardProps {
     passcode: string
-    setPasscode: Function
     handleKey: Function
     random: boolean
+    title: string
     navigation?: any
 }
 
-const NumberKeyboard = ({ passcode, handleKey, random, navigation }: NumberKeyboardProps) => {
+const NumberKeyboard = ({ passcode, handleKey, random,title, navigation }: NumberKeyboardProps) => {
     let passcodeKeys: PasscodeKey[] = [
         {
             value: "1",
@@ -92,7 +92,6 @@ const NumberKeyboard = ({ passcode, handleKey, random, navigation }: NumberKeybo
         shuffledKeys[9] = shuffledKeys[deleteIndex]
         shuffledKeys[deleteIndex] = temp
         passcodeKeys = shuffledKeys
-        
     }
 
     if (random) {
@@ -100,7 +99,7 @@ const NumberKeyboard = ({ passcode, handleKey, random, navigation }: NumberKeybo
     }
 
     return (
-        < View style={styles.passcodeKeyboard} >
+        <View style={styles.passcodeKeyboard}>
             {
                 passcodeKeys.map((key, index) => (
                     <TouchableOpacity
@@ -109,7 +108,15 @@ const NumberKeyboard = ({ passcode, handleKey, random, navigation }: NumberKeybo
                             width: width * 0.9 / 3,
                             height: width * 0.9 / 3,
                         }]}
-                        onPress={() => handleKey(key.value)}
+                        onPress={() => {
+                            if (key.value !== "Arrow") {
+                                handleKey(key.value);
+                            } else if (title.includes("Create")) {
+                                navigation.navigate("Passcode", { random: true, title: "Confirm Passcode", subtitle: "" });
+                            }else {
+                                navigation.navigate("Tailor");
+                            }
+                        }}
                         disabled={key.value === "Arrow" && passcode.length < 6}
                     >
                         {key.value === "Arrow" ?

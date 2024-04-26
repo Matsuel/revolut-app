@@ -47,7 +47,7 @@ const Passcode = ({ navigation, route }: PasscodeProps) => {
 
             <NumberKeyboard
                 passcode={passcode}
-                setPasscode={setPasscode}
+                title={title}
                 handleKey={handleKey}
                 random={random}
                 navigation={navigation}

@@ -15,6 +15,7 @@ import Email from './src/Screens/Email/Email';
 import Identity from './src/Screens/Identity/Identity';
 import Camera from './src/Screens/Camera/Camera';
 import Passcode from './src/Screens/Passcode/Passcode';
+import Tailor from './src/Screens/Tailor/Tailor';
 
 const Stack = createNativeStackNavigator();
 
@@ -45,6 +46,11 @@ export default function App() {
         <Stack.Screen
           name="Passcode"
           component={Passcode}
+          options={options}
+        />
+        <Stack.Screen
+          name="Tailor"
+          component={Tailor}
           options={options}
         />
 
