@@ -18,7 +18,7 @@ interface NumberKeyboardProps {
     navigation?: any
 }
 
-const NumberKeyboard = ({ passcode, setPasscode, handleKey, random, navigation }: NumberKeyboardProps) => {
+const NumberKeyboard = ({ passcode, handleKey, random, navigation }: NumberKeyboardProps) => {
     let passcodeKeys: PasscodeKey[] = [
         {
             value: "1",
@@ -81,6 +81,9 @@ const NumberKeyboard = ({ passcode, setPasscode, handleKey, random, navigation }
             backgroundColor: "#0d6efd",
         },
     ]
+
+    console.log(random)
+    console.log(navigation)
 
     const { width } = Dimensions.get("window")
 
