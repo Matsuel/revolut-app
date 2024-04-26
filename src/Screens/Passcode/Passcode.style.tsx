@@ -68,6 +68,9 @@ export const styles = StyleSheet.create({
         color: "#000",
         transform: [{rotate: '180deg'}] 
     },
+    arrowDisabled: {
+        backgroundColor: "#e8f0fc",
+    },
     delete: {
         width: 24,
         height: 24,

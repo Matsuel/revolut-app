@@ -92,18 +92,8 @@ const Passcode = ({ navigation, route }: PasscodeProps) => {
         if (key === "delete") {
             setPasscode(passcode.slice(0, -1))
         } else if (passcode.length < 12 && key !== "Arrow") {
-            setPasscode(passcode + key.toString())
+            setPasscode(passcode + key)
         }
-    }
-
-    const randomizePasskeys = () => {
-        const keys = passcodeKeys.slice(0, 10)
-        for (let i = keys.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [keys[i], keys[j]] = [keys[j], keys[i]];
-        }
-        keys.push(passcodeKeys[10])
-        return keys
     }
 
     return (
@@ -132,16 +122,18 @@ const Passcode = ({ navigation, route }: PasscodeProps) => {
                 {passcodeKeys.map((key, index) => (
                     <TouchableOpacity
                         key={index ** 2}
-                        style={[styles.passcodeKey, {
+                        style={[styles.passcodeKey,                    {
                             width: width * 0.9 / 3,
                             height: width * 0.9 / 3,
                         }]}
                         onPress={() => handleKey(key.value)}
+                        disabled={key.value === "Arrow" && passcode.length < 6}
                     >
                         {key.value === "Arrow" ?
                             <View style={[
+                                { backgroundColor: key.backgroundColor },
                                 styles.arrow,
-                                { backgroundColor: key.backgroundColor }
+                                passcode.length < 6 && styles.arrowDisabled,
                             ]}>
                                 <LeftArrow color={key.color} />
                             </View>
