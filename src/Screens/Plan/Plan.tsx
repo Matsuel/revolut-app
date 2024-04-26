@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text, TouchableOpacity, FlatList } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 import { styles } from './Plan.style'
 import Bolt from '../../assets/Bolt'
 import Gift from '../../assets/Gift'
@@ -10,17 +10,13 @@ import Plus from '../../assets/Plus'
 import Bag from '../../assets/Bag'
 import { PlanType } from './type'
 import PlanDetails from '../../Components/PlanDetails/PlanDetails'
+import PlansHeader from '../../Components/PlansHeader/PlansHeader'
 
 const Plan = ({ navigation }: any) => {
 
     const [selectedPlan, setSelectedPlan] = useState<string>("Metal")
 
-    const plans = [
-        "Metal",
-        "Premium",
-        "Plus",
-        "Standard"
-    ]
+    
 
     const PlanData: PlanType[] = [
         {
@@ -139,20 +135,12 @@ const Plan = ({ navigation }: any) => {
                 Select plan
             </Text>
 
-            <View style={styles.plans}>
-                {plans.map((plan, i) => (
-                    <TouchableOpacity
-                        key={i}
-                        style={selectedPlan === plan ? styles.planSelected : styles.plan}
-                        onPress={() => setSelectedPlan(plan)}
-                    >
-                        <Text style={selectedPlan === plan ? styles.planTextActive : styles.planText}>
-                            {plan}
-                        </Text>
-                    </TouchableOpacity>
+            <PlansHeader
+                selectedPlan={selectedPlan}
+                setSelectedPlan={setSelectedPlan}
+            />
 
-                ))}
-            </View>
+            
 
             <PlanDetails
                 PlanData={PlanData}
