@@ -27,4 +27,33 @@ export const styles = StyleSheet.create({
         fontWeight: "700",
         marginTop: "5%",
     },
+    plans: {
+        width: "90%",
+        marginTop: "10%",
+        flexDirection: "row",
+        justifyContent: "space-between",
+    },
+    plan: {
+        width: "24%",
+        height: 40,
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: 12,
+        padding: 5,
+        backgroundColor: "transparent",
+    },
+    planSelected: {
+        width: "24%",
+        height: 40,
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: 30,
+        padding: 5,
+        backgroundColor: "#fff",
+    },
+    planText: {
+        color: "#000",
+        fontSize: 14,
+        fontWeight: "800",
+    }
 });
