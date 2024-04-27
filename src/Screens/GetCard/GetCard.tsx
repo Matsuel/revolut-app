@@ -1,6 +1,7 @@
 import React from 'react'
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, TouchableOpacity } from 'react-native'
 import styles from './GetCard.style'
+import Card from '../../assets/Card'
 
 type CardDetails = {
     title: string
@@ -37,19 +38,25 @@ const GetCard = ({ navigation, route }: any) => {
             <View style={styles.cardsContainer}>
                 {
                     cardsDetails.map((card, index) => (
-                        <View style={styles.card} key={index}>
-                            <Text style={styles.cardTitle}>
-                                {card.title}
-                            </Text>
-                            <Text style={styles.cardDescription}>
-                                {card.description}
-                            </Text>
+                        <TouchableOpacity style={styles.card} key={index}>
+
+                            <View style={styles.cardLeft}>
+                                <View style={styles.cardIconWrapper}>
+                                    <Card color='#fff' props="" />
+                                </View>
+                                <Text style={styles.cardTitle}>
+                                    {card.title}
+                                </Text>
+                                <Text style={styles.cardDescription}>
+                                    {card.description}
+                                </Text>
+                            </View>
                             <Image
                                 // @ts-ignore
                                 source={card.image}
                                 style={styles.cardImage}
                             />
-                        </View>
+                        </TouchableOpacity>
                     ))
                 }
             </View>
