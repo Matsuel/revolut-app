@@ -37,13 +37,13 @@ export default StyleSheet.create({
         height: "auto",
         flexDirection: "column",
         justifyContent: "flex-end",
-        marginRight: 20,
+        marginRight: "5%",
     },
     cardTitle: {
         color: "#000",
         fontSize: 20,
         fontWeight: "600",
-        marginTop: "10%",
+        marginTop: "15%",
         marginBottom: "5%",
     },
     cardDescription: {
@@ -52,7 +52,7 @@ export default StyleSheet.create({
         fontWeight: "500",
     },
     cardImage: {
-        width: "20%",
+        width: "28%",
         height: "auto",
     },
     cardIconWrapper: {
