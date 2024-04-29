@@ -38,7 +38,11 @@ const GetCard = ({ navigation, route }: any) => {
             <View style={styles.cardsContainer}>
                 {
                     cardsDetails.map((card, index) => (
-                        <TouchableOpacity style={styles.card} key={index}>
+                        <TouchableOpacity style={styles.card} key={index}
+                            onPress={() => card.title.includes("Virtual") ? 
+                            navigation.navigate("Pin", {type: "virtual", plan: plan}) 
+                            : navigation.navigate("")}
+                        >
 
                             <View style={styles.cardLeft}>
                                 <View style={styles.cardIconWrapper}>

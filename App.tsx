@@ -18,6 +18,7 @@ import Passcode from './src/Screens/Passcode/Passcode';
 import Tailor from './src/Screens/Tailor/Tailor';
 import Plan from './src/Screens/Plan/Plan';
 import GetCard from './src/Screens/GetCard/GetCard';
+import Pin from './src/Screens/Pin/Pin';
 
 const Stack = createNativeStackNavigator();
 
@@ -63,6 +64,11 @@ export default function App() {
         <Stack.Screen
           name="GetCard"
           component={GetCard}
+          options={options}
+        />
+        <Stack.Screen
+          name="Pin"
+          component={Pin}
           options={options}
         />
 
