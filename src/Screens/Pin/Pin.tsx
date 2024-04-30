@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { View, Text, TextInput } from 'react-native'
 import styles from './Pin.style'
+import { focusFirst, focusNext, focusPrev } from '../../Functions/CodeConfirmation'
 
 interface PinProps {
     navigation: any
@@ -20,16 +21,11 @@ const Pin = ({ navigation, route }: PinProps) => {
     const { type, plan, code } = route.params
     console.log(type, plan, code)
 
-    const [pin, setPin] = useState<string>("")
+    const [pin, setPin] = useState<number[]>(new Array(4).fill(NaN))
     const ref = useRef<any[]>([])
 
-    //utiliser la fonction qui existe déjà
-    const focusFirst = (inputs: any) => {
-        inputs[0].focus()
-    }
-
     useEffect(() => {
-        focusFirst(ref.current)
+        focusFirst(ref)
     }, [])
 
     return (
@@ -49,6 +45,8 @@ const Pin = ({ navigation, route }: PinProps) => {
                         maxLength={1}
                         keyboardType="number-pad"
                         ref={el => ref.current[index] = el}
+                        onChangeText={(value) => {focusNext(index, value, ref)}}
+                        onKeyPress={({ nativeEvent }) => {focusPrev(index, nativeEvent, ref)}}
                     />
 
                 ))}
