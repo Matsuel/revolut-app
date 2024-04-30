@@ -35,10 +35,13 @@ export default StyleSheet.create({
     input: {
         width: 50,
         height: 50,
-        backgroundColor: "#fff",
+        backgroundColor: "#edeff2",
         borderRadius: 10,
         textAlign: "center",
         fontSize: 24,
         fontWeight: "700",
     },
+    inputFocused: {
+        backgroundColor: "#e0e3e7",
+    }
 })

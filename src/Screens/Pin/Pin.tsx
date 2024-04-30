@@ -22,6 +22,7 @@ const Pin = ({ navigation, route }: PinProps) => {
     console.log(type, plan, code)
 
     const [pin, setPin] = useState<number[]>(new Array(4).fill(NaN))
+    const [focusedInput, setFocusedInput] = useState<number | null>(null)
     const ref = useRef<any[]>([])
 
     useEffect(() => {
@@ -38,15 +39,18 @@ const Pin = ({ navigation, route }: PinProps) => {
             </Text>
 
             <View style={styles.inputContainer}>
-                {[0, 1, 2, 3].map((item, index) => (
+                {[0, 1, 2, 3].map((item) => (
                     <TextInput
-                        key={index}
-                        style={styles.input}
+                        key={item}
+                        style={[styles.input, focusedInput === item ? styles.inputFocused : null]}
                         maxLength={1}
+                        secureTextEntry={true}
                         keyboardType="number-pad"
-                        ref={el => ref.current[index] = el}
-                        onChangeText={(value) => {focusNext(index, value, ref)}}
-                        onKeyPress={({ nativeEvent }) => {focusPrev(index, nativeEvent, ref)}}
+                        ref={el => ref.current[item] = el}
+                        onChangeText={(value) => {focusNext(item, value, ref)}}
+                        onKeyPress={({ nativeEvent }) => {focusPrev(item, nativeEvent, ref)}}
+                        onFocus={() => setFocusedInput(item)}
+                        onBlur={() => setFocusedInput(null)}
                     />
 
                 ))}
