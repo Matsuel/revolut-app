@@ -24,4 +24,21 @@ export default StyleSheet.create({
         fontWeight: "700",
         marginTop: "7%",
     },
+    inputContainer: {
+        width: "100%",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: "15%",
+        gap: 30
+    },
+    input: {
+        width: 50,
+        height: 50,
+        backgroundColor: "#fff",
+        borderRadius: 10,
+        textAlign: "center",
+        fontSize: 24,
+        fontWeight: "700",
+    },
 })
