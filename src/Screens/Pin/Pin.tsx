@@ -42,13 +42,16 @@ const Pin = ({ navigation, route }: PinProps) => {
                 {[0, 1, 2, 3].map((item) => (
                     <TextInput
                         key={item}
-                        style={[styles.input, focusedInput === item ? styles.inputFocused : null]}
+                        style={[styles.input,
+                        focusedInput === item ?
+                            styles.inputFocused :
+                            null]}
                         maxLength={1}
                         secureTextEntry={true}
                         keyboardType="number-pad"
                         ref={el => ref.current[item] = el}
-                        onChangeText={(value) => {focusNext(item, value, ref)}}
-                        onKeyPress={({ nativeEvent }) => {focusPrev(item, nativeEvent, ref)}}
+                        onChangeText={(value) => { focusNext(item, value, ref) }}
+                        onKeyPress={({ nativeEvent }) => { focusPrev(item, nativeEvent, ref) }}
                         onFocus={() => setFocusedInput(item)}
                         onBlur={() => setFocusedInput(null)}
                     />
