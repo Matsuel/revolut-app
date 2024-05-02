@@ -16,6 +16,7 @@ import Plan from "./Plan/Plan";
 import SplashScreen from "./SplashScreen/SplashScreen";
 import Tailor from "./Tailor/Tailor";
 import Welcome from "./Welcome/Welcome";
+import Checkout from "./Checkout/Checkout";
 
 export default {
     "Identity" : Identity,
@@ -35,5 +36,6 @@ export default {
     "Plan" : Plan,
     "SplashScreen" : SplashScreen,
     "Tailor" : Tailor,
-    "Welcome" : Welcome
+    "Welcome" : Welcome,
+    "Checkout" : Checkout
 }

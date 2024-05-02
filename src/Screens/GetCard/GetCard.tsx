@@ -40,7 +40,7 @@ const GetCard = ({ navigation, route }: any) => {
                     cardsDetails.map((card, index) => (
                         <TouchableOpacity style={styles.card} key={index}
                             onPress={() => card.title.includes("Virtual") ? 
-                            navigation.navigate("Pin", {type: "virtual", plan: plan}) 
+                            navigation.navigate("Pin", {title: "Create PIN", subtitle: "Enter a 4 digit PIN to secure your card", type: "virtual", plan: plan})
                             : navigation.navigate("")}
                         >
 
