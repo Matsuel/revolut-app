@@ -28,8 +28,9 @@ const Pin = ({ navigation, route }: PinProps) => {
     const ref = useRef<any[]>([])
 
     useEffect(() => {
+        setPin(new Array(4).fill(NaN))
         focusFirst(ref)
-    }, [])
+    }, [route.params])
 
     return (
         <View style={styles.container}>
@@ -44,6 +45,7 @@ const Pin = ({ navigation, route }: PinProps) => {
                 {[0, 1, 2, 3].map((item) => (
                     <TextInput
                         key={item}
+                        value={pin[item] ? pin[item].toString() : ""}
                         style={[styles.input,
                         focusedInput === item ?
                             styles.inputFocused :
@@ -64,9 +66,8 @@ const Pin = ({ navigation, route }: PinProps) => {
                                 newValue[item] = parseInt(e.nativeEvent.text)
                                 newValue.every((v) => !isNaN(v) && title.includes("Create")) ?
                                     navigation.navigate("Pin", { title: "Confirm PIN", subtitle: "", type: type, plan: plan, code: newValue }
-                                    ) : code?.every((v) => !isNaN(v) && title.includes("Confirm")) ? 
+                                    ) : newValue.every((v) => !isNaN(v) && title.includes("Confirm")) ? 
                                     navigation.navigate('Checkout', { plan: plan, type: type, code: newValue }) 
-                                    // console.log("done")
                                     : null
                                 setPin(newValue)
                                 return 1

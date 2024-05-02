@@ -5,7 +5,7 @@ import { styles } from './Checkout.style'
 const Checkout = () => {
   return (
     <View style={styles.container}>
-      <Text>
+      <Text style={styles.title}>
         Checkout
       </Text>
     </View>
