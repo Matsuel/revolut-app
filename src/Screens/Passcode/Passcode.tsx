@@ -3,19 +3,20 @@ import { View, Text, TextInput } from 'react-native'
 import { styles } from './Passcode.style'
 import NumberKeyboard from '../../Components/NumberKeyboard/NumberKeyboard'
 
-
-
 interface PasscodeProps {
     navigation: any
     route: any
     code?: string
 }
 
-const Passcode = ({ navigation, route }: PasscodeProps) => {
+const Passcode = ({
+    navigation,
+    route
+}: PasscodeProps) => {
 
     const [passcode, setPasscode] = useState<string>("")
 
-    const { random, title, subtitle } = route.params    
+    const { random, title, subtitle } = route.params
 
     const handleKey = (key: string) => {
         if (key === "delete") {

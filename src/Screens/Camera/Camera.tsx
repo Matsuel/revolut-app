@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import { styles } from './Camera.style'
 import { View, Text, Button, TouchableOpacity } from 'react-native'
 import { CameraType, CameraView, useCameraPermissions } from 'expo-camera/next';
-import Loader from './Loader/Loader';
+import Loader from '../../Components/Loader/Loader';
 
-const CameraScreen = ({ navigation }: any) => {
+const CameraScreen = ({
+    navigation
+}: any) => {
 
     const [facing, setFacing] = useState<CameraType>('back');
     const [permissions, askForPermissions] = useCameraPermissions()

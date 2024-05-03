@@ -3,7 +3,9 @@ import { View, Text, TouchableOpacity, Image } from 'react-native'
 import { styles } from './Tailor.style'
 import ButtonCustom from '../../Components/ButtonCustom/ButtonCustom'
 
-const Tailor = ({ navigation }: any) => {
+const Tailor = ({
+    navigation
+}: any) => {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>
@@ -24,13 +26,13 @@ const Tailor = ({ navigation }: any) => {
             <Image
                 source={require('../../assets/pc.png')}
                 style={styles.image}
-                />
+            />
 
             <ButtonCustom
                 title="Continue"
                 navigation={navigation}
                 nextScreen='Plan'
-                />
+            />
         </View>
     )
 }

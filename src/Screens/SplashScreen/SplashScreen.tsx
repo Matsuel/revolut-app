@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react'
 import { Text, View } from 'react-native'
 import { styles } from './SplashScreen.style'
 
-const SplashScreen = ({navigation}: any) => {
+const SplashScreen = ({
+    navigation
+}: any) => {
 
     const [start, setStart] = useState<number>(0)
 
@@ -18,16 +20,16 @@ const SplashScreen = ({navigation}: any) => {
         return () => clearInterval(interval)
     }, [start])
 
-  return (
-    <View style={styles.container}>
-        <Text style={styles.text}>
-            Revolut
-        </Text>
-        <View style={styles.progressBar}>
-            <View style={{...styles.progress, width: `${start}%`}} />
+    return (
+        <View style={styles.container}>
+            <Text style={styles.text}>
+                Revolut
+            </Text>
+            <View style={styles.progressBar}>
+                <View style={{ ...styles.progress, width: `${start}%` }} />
+            </View>
         </View>
-    </View>
-  )
+    )
 }
 
 export default SplashScreen

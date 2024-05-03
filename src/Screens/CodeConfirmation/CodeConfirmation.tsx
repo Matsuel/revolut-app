@@ -12,11 +12,12 @@ interface Props {
     route?: any,
 }
 
-const CodeConfirmation = ({ navigation, route }: Props) => {
+const CodeConfirmation = ({
+    navigation,
+    route
+}: Props) => {
 
     const { dial_code, phone_number, code } = route.params;
-
-    console.log(code, "code");
 
     const inputs = useRef<any[]>([]);
 
@@ -33,7 +34,7 @@ const CodeConfirmation = ({ navigation, route }: Props) => {
         <View style={styles.container}>
             <View style={styles.top}>
                 <GoBack navigation={navigation} color='#000' />
-                <Logo />
+                <Logo props="" color='#000' />
             </View>
             <Text style={styles.title}>
                 Enter the code
@@ -94,23 +95,23 @@ const AlertMessage = (title: string, message: string, codeCorrect: number, setCo
             setValue(new Array(6).fill(NaN));
         }
     ) :
-    (
-    Alert.alert(
-        title,
-        message,
-        [
-            {
-                text: "OK",
-                onPress: () => {
-                    setCodeCorrect(0)
-                    clearInputs(inputs)
-                    setValue(new Array(6).fill(NaN));
-                }
-            },
-        ],
-        { cancelable: true }
-    )
-    )   
+        (
+            Alert.alert(
+                title,
+                message,
+                [
+                    {
+                        text: "OK",
+                        onPress: () => {
+                            setCodeCorrect(0)
+                            clearInputs(inputs)
+                            setValue(new Array(6).fill(NaN));
+                        }
+                    },
+                ],
+                { cancelable: true }
+            )
+        )
 
     return null;
 }

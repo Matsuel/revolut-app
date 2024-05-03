@@ -3,15 +3,11 @@ import { View, Text, TextInput, TouchableOpacity } from 'react-native'
 import { styles } from './Names.style'
 import X from '../../assets/X'
 import ButtonCustom from '../../Components/ButtonCustom/ButtonCustom'
+import { NameButton } from '../../types/type'
 
-interface Button {
-    title: string,
-    onPress: () => void,
-    value: string,
-    onChangeText: (text: string) => void
-}
-
-const Names = ({ navigation }: any) => {
+const Names = ({
+    navigation
+}: any) => {
 
     const [firstName, setFirstName] = useState<string>("");
     const [lastName, setLastName] = useState<string>("");
@@ -24,7 +20,7 @@ const Names = ({ navigation }: any) => {
         }
     }
 
-    const buttons: Button[] = [
+    const buttons: NameButton[] = [
         {
             title: "Last name",
             onPress: () => { clearInput("last") },
@@ -52,13 +48,13 @@ const Names = ({ navigation }: any) => {
 
                 {buttons.map((button, index) => (
                     <View style={styles.inputContainer} key={button.title}>
-                        <TextInput style={styles.input} placeholder={button.title} value={button.value} onChangeText={(text) => button.onChangeText(text)} autoFocus={index===0} />
+                        <TextInput style={styles.input} placeholder={button.title} value={button.value} onChangeText={(text) => button.onChangeText(text)} autoFocus={index === 0} />
                         <Text style={styles.label}>
                             {button.title}
                         </Text>
                         {button.value.length > 0 &&
                             <TouchableOpacity style={styles.clear} onPress={button.onPress}>
-                                <X color="#fff" />
+                                <X color="#fff" props="" />
                             </TouchableOpacity>
                         }
                     </View>

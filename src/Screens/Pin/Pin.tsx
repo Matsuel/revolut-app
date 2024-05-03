@@ -2,23 +2,18 @@ import React, { useEffect, useRef, useState } from 'react'
 import { View, Text, TextInput } from 'react-native'
 import styles from './Pin.style'
 import { focusFirst, focusNext, focusPrev } from '../../Functions/CodeConfirmation'
+import { PinRouteParams } from '../../types/type'
 
 interface PinProps {
     navigation: any
-    route: RouteParams
+    route: PinRouteParams
 }
 
-type RouteParams = {
-    params: {
-        title: string
-        subtitle: string
-        type: string
-        plan: string
-        code?: number[]
-    }
-}
 
-const Pin = ({ navigation, route }: PinProps) => {
+const Pin = ({
+    navigation,
+    route
+}: PinProps) => {
 
     const { title, subtitle, type, plan, code } = route.params
 
@@ -65,9 +60,9 @@ const Pin = ({ navigation, route }: PinProps) => {
                                 newValue[item] = parseInt(e.nativeEvent.text)
                                 newValue.every((v) => !isNaN(v) && title.includes("Create")) ?
                                     navigation.navigate("Pin", { title: "Confirm PIN", subtitle: "", type: type, plan: plan, code: newValue }
-                                    ) : newValue.every((v) => !isNaN(v) && title.includes("Confirm")) ? 
-                                    navigation.navigate('Checkout', { plan: plan, type: type, code: newValue }) 
-                                    : null
+                                    ) : newValue.every((v) => !isNaN(v) && title.includes("Confirm")) ?
+                                        navigation.navigate('Checkout', { plan: plan, type: type, code: newValue })
+                                        : null
                                 setPin(newValue)
                                 return 1
                             }

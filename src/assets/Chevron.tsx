@@ -1,7 +1,8 @@
 import * as React from "react"
 import Svg, { Path } from "react-native-svg"
+import { SvgProps } from "../types/type"
 
-function Chevron({ props, color }: any) {
+function Chevron({ props, color }: SvgProps) {
   return (
     <Svg
       xmlns="http://www.w3.org/2000/svg"

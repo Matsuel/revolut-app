@@ -1,12 +1,10 @@
 import * as React from "react"
 import Svg, { Path } from "react-native-svg"
+import { SvgProps } from "../types/type"
 
-interface Props {
-    props: any
-    color: string
-}
 
-function Card({ color, props }: Props) {
+
+function Card({ color, props }: SvgProps) {
     return (
         <Svg
             xmlns="http://www.w3.org/2000/svg"

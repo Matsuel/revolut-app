@@ -7,10 +7,13 @@ interface Props {
     color: string;
 }
 
-const GoBack = ({ navigation, color }: Props) => {
+const GoBack = ({
+    navigation,
+    color
+}: Props) => {
     return (
         <TouchableOpacity onPress={() => navigation.goBack()}>
-            <LeftArrow color={color} />
+            <LeftArrow props="" color={color} />
         </TouchableOpacity>
     )
 }

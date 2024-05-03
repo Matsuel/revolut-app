@@ -5,13 +5,11 @@ import Shield from '../../assets/Shield'
 import Camera from '../../assets/Camera'
 import { StatusBar } from 'expo-status-bar'
 import ButtonCustom from '../../Components/ButtonCustom/ButtonCustom'
+import { Instruction } from '../../types/type'
 
-type Instruction = {
-    description: string
-    icon: JSX.Element
-}
-
-const Identity = ({ navigation }: any) => {
+const Identity = ({
+    navigation
+}: any) => {
 
     const instructions: Instruction[] = [
         {

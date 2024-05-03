@@ -4,12 +4,7 @@ import { styles } from './Countries.style';
 import Datas from '../../datas/Countries.json'
 import CountryFlag from "react-native-country-flag";
 import { StatusBar } from 'expo-status-bar';
-
-type Country = {
-    name: string,
-    dial_code: string,
-    code: string,
-}
+import { Country } from '../../types/type';
 
 interface Props {
     showModal: boolean,
@@ -17,7 +12,11 @@ interface Props {
     setDefaultCountry: any,
 }
 
-const CountriesModal = ({ showModal, setShowModal, setDefaultCountry }: Props) => {
+const CountriesModal = ({
+    showModal,
+    setShowModal,
+    setDefaultCountry
+}: Props) => {
 
     const handleCountry = (country: Country) => {
         setDefaultCountry({

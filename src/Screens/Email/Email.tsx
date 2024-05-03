@@ -4,7 +4,9 @@ import { styles } from './Email.style'
 import { CheckBox } from '@rneui/themed';
 import ButtonCustom from '../../Components/ButtonCustom/ButtonCustom';
 
-const Email = ({ navigation }: any) => {
+const Email = ({
+    navigation
+}: any) => {
 
     const [checked, setChecked] = useState<boolean>(false);
     const [email, setEmail] = useState<string>("");

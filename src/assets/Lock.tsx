@@ -1,12 +1,8 @@
 import * as React from "react"
 import Svg, { Path } from "react-native-svg"
+import { SvgProps } from "../types/type"
 
-interface LockProps {
-    props: any
-    color?: string
-}
-
-function Lock({ color, props }: LockProps) {
+function Lock({ color, props }: SvgProps) {
   return (
     <Svg
       xmlns="http://www.w3.org/2000/svg"

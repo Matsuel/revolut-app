@@ -15,7 +15,10 @@ interface Props {
     route: any,
 }
 
-const Phone = ({ navigation, route }: Props) => {
+const Phone = ({
+    navigation,
+    route
+}: Props) => {
 
     const { title, subtitle, button } = route.params;
 
@@ -45,7 +48,7 @@ const Phone = ({ navigation, route }: Props) => {
             <StatusBar style="dark" />
             <View style={styles.top}>
                 <GoBack navigation={navigation} color='#000' />
-                <Logo />
+                <Logo props="" color='#000' />
             </View>
             <Text style={styles.title}>
                 {title}
@@ -75,7 +78,7 @@ const Phone = ({ navigation, route }: Props) => {
 
                 {phoneNumber.length > 0 &&
                     <TouchableOpacity onPress={() => setPhoneNumber("")} style={styles.clear}>
-                        <X color="#fff" />
+                        <X color="#fff" props="" />
                     </TouchableOpacity>
                 }
 
@@ -95,7 +98,7 @@ const Phone = ({ navigation, route }: Props) => {
                 style={[styles.button, phoneNumber.length === 0 && styles.buttonDisabled]}
                 disabled={phoneNumber.length === 0}
                 onPress={handleCodeConfirmation}
-                >
+            >
                 <Text style={styles.buttonText}>
                     {button}
                 </Text>

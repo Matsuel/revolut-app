@@ -1,12 +1,8 @@
 import * as React from "react"
 import Svg, { Path } from "react-native-svg"
+import { SvgProps } from "../types/type"
 
-interface Props {
-  props?: any
-  color?: string
-}
-
-function Logo({ props, color }: Props) {
+function Logo({ props, color }: SvgProps) {
   return (
     <Svg
       width="25px"

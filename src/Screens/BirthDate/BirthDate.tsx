@@ -3,7 +3,9 @@ import { View, Text, TextInput } from 'react-native'
 import { styles } from './BirthDate.style'
 import ButtonCustom from '../../Components/ButtonCustom/ButtonCustom'
 
-const BirthDate = ({ navigation }: any) => {
+const BirthDate = ({
+    navigation
+}: any) => {
 
     const [input, setInput] = useState<string>("");
 
@@ -13,7 +15,7 @@ const BirthDate = ({ navigation }: any) => {
             setInput(input.slice(0, -1));
         } else if (key >= "0" && key <= "9") {
             if (input.length === 2 || input.length === 5) {
-                setInput(input + "/"+ key);
+                setInput(input + "/" + key);
             } else {
                 setInput(input + key);
             }
@@ -22,11 +24,14 @@ const BirthDate = ({ navigation }: any) => {
 
     return (
         <View style={styles.container}>
+
             <Text style={styles.title}>
                 Date of birth
             </Text>
+
             <View style={styles.form}>
                 <View style={styles.inputContainer}>
+
                     <TextInput
                         style={styles.input}
                         placeholder="DD/MM/YYYY"
@@ -39,18 +44,22 @@ const BirthDate = ({ navigation }: any) => {
                         }}
                     />
                 </View>
+
                 <Text style={styles.label}>
                     Day, month, year
                 </Text>
+
             </View>
 
             <View style={styles.buttons}>
+
                 <ButtonCustom
                     title="Continue"
                     nextScreen='Address'
                     disabled={input.length !== 10}
                     navigation={navigation}
                 />
+
             </View>
         </View>
     )

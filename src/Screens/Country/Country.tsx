@@ -5,7 +5,9 @@ import Chevron from '../../assets/Chevron'
 import CountriesModal from '../Countries/Countries'
 import ButtonCustom from '../../Components/ButtonCustom/ButtonCustom'
 
-const Country = ({ navigation }: any) => {
+const Country = ({
+    navigation
+}: any) => {
 
     const [showModal, setShowModal] = useState<boolean>(false);
     const [defaultCountry, setDefaultCountry] = useState({
@@ -33,7 +35,7 @@ const Country = ({ navigation }: any) => {
                     </Text>
                 </View>
                 <View style={styles.countryArrow}>
-                    <Chevron color="#737a86" />
+                    <Chevron color="#737a86" props="" />
                 </View>
             </TouchableOpacity>
 

@@ -2,8 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { Text, TouchableOpacity } from 'react-native';
 import { styles } from './Timer.style';
 
+interface TimerProps {
+    timervalue: number;
+}
 
-export const Timer = ({ timervalue }: { timervalue: number }) => {
+
+export const Timer = ({
+    timervalue
+}: TimerProps) => {
+    
     const [timer, setTimer] = useState<number>(timervalue);
 
     useEffect(() => {

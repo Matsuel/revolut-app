@@ -1,5 +1,5 @@
 import React from 'react'
-import { PlanType } from '../../Screens/Plan/type'
+import { PlanType } from '../../types/type'
 import { View, Text, FlatList, TouchableOpacity } from 'react-native'
 import { styles } from './PlanDetails.style'
 
@@ -9,7 +9,11 @@ interface PlanDetailsProps {
     navigation: any
 }
 
-const PlanDetails = ({ PlanData, selectedPlan, navigation }: PlanDetailsProps) => {
+const PlanDetails = ({
+    PlanData,
+    selectedPlan,
+    navigation
+}: PlanDetailsProps) => {
     return (
         <>
             {PlanData.map((plan, i) => (

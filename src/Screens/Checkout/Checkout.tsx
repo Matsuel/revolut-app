@@ -4,27 +4,17 @@ import { styles } from './Checkout.style'
 import { Capitalize } from '../../Functions/String'
 import Card from '../../assets/Card'
 import Lock from '../../assets/Lock'
+import { PlaInfosType, RouteParams } from '../../types/type'
 
 interface CheckoutProps {
     navigation: any
     route: RouteParams
 }
 
-type RouteParams = {
-    params: {
-        type: string
-        plan: string
-        code: number[]
-    }
-}
-
-type PlaInfosType = {
-    title: string
-    info: string
-}
-
-
-const Checkout = ({ navigation, route }: CheckoutProps) => {
+const Checkout = ({
+    navigation,
+    route
+}: CheckoutProps) => {
 
     const { type, plan, code } = route.params
     console.log(type, plan, code)

@@ -8,7 +8,10 @@ interface PlansHeaderProps {
 }
 
 
-const PlansHeader = ({ selectedPlan, setSelectedPlan }: PlansHeaderProps) => {
+const PlansHeader = ({
+    selectedPlan,
+    setSelectedPlan
+}: PlansHeaderProps) => {
 
     const plans = [
         "Metal",

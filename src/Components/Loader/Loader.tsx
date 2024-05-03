@@ -10,14 +10,19 @@ interface LoaderProps {
 }
 
 
-const Loader = ({ navigation, showLoader, setShowLoader,setShowCamera }: LoaderProps) => {
+const Loader = ({
+    navigation,
+    showLoader,
+    setShowLoader,
+    setShowCamera
+}: LoaderProps) => {
 
     useEffect(() => {
         if (showLoader) {
             setShowCamera(false)
             setTimeout(() => {
                 setShowLoader(false)
-                navigation.navigate('Passcode',{
+                navigation.navigate('Passcode', {
                     title: "Create Passcode",
                     subtitle: "The passcode should be 6 to 12 digits long",
                     random: false,
@@ -33,7 +38,12 @@ const Loader = ({ navigation, showLoader, setShowLoader,setShowCamera }: LoaderP
                 <View style={styles.loader}>
                     <View style={styles.loaderView}>
                         <View style={styles.loaderWrapper}>
-                            <ActivityIndicator size="large" color="#000" />
+
+                            <ActivityIndicator
+                                size="large"
+                                color="#000"
+                            />
+
                             <Text style={styles.loaderText}>
                                 Done!
                             </Text>

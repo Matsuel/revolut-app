@@ -3,12 +3,7 @@ import { View, Text, TouchableOpacity, Dimensions } from 'react-native'
 import { styles } from './NumberKeyboard.style'
 import LeftArrow from '../../assets/LeftArrow'
 import Delete from '../../assets/Delete'
-
-type PasscodeKey = {
-    value: string
-    color: string
-    backgroundColor: string
-}
+import { PasscodeKey } from '../../types/type'
 
 interface NumberKeyboardProps {
     passcode: string
@@ -18,7 +13,13 @@ interface NumberKeyboardProps {
     navigation?: any
 }
 
-const NumberKeyboard = ({ passcode, handleKey, random,title, navigation }: NumberKeyboardProps) => {
+const NumberKeyboard = ({
+    passcode,
+    handleKey,
+    random,
+    title,
+    navigation
+}: NumberKeyboardProps) => {
     let passcodeKeys: PasscodeKey[] = [
         {
             value: "1",
@@ -113,7 +114,7 @@ const NumberKeyboard = ({ passcode, handleKey, random,title, navigation }: Numbe
                                 handleKey(key.value);
                             } else if (title.includes("Create")) {
                                 navigation.navigate("Passcode", { random: true, title: "Confirm Passcode", subtitle: "" });
-                            }else {
+                            } else {
                                 navigation.navigate("Tailor");
                             }
                         }}
@@ -125,7 +126,7 @@ const NumberKeyboard = ({ passcode, handleKey, random,title, navigation }: Numbe
                                 styles.arrow,
                                 passcode.length < 6 && styles.arrowDisabled,
                             ]}>
-                                <LeftArrow color={key.color} />
+                                <LeftArrow props="" color={key.color} />
                             </View>
                             : key.value === "delete" ?
                                 <View style={styles.delete}>

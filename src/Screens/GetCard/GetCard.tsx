@@ -1,19 +1,15 @@
 import React from 'react'
-import { View, Text, Image, TouchableOpacity } from 'react-native'
+import { View, Text, Image, TouchableOpacity, ImageSourcePropType } from 'react-native'
 import styles from './GetCard.style'
 import Card from '../../assets/Card'
+import { CardDetails } from '../../types/type'
 
-type CardDetails = {
-    title: string
-    description: string
-    image: string
-}
-
-
-const GetCard = ({ navigation, route }: any) => {
+const GetCard = ({
+    navigation,
+    route
+}: any) => {
 
     const { plan } = route.params
-    console.log(plan)
 
     const cardsDetails: CardDetails[] = [
         {
@@ -39,9 +35,9 @@ const GetCard = ({ navigation, route }: any) => {
                 {
                     cardsDetails.map((card, index) => (
                         <TouchableOpacity style={styles.card} key={index}
-                            onPress={() => card.title.includes("Virtual") ? 
-                            navigation.navigate("Pin", {title: "Create PIN", subtitle: "Enter a 4 digit PIN to secure your card", type: "virtual", plan: plan})
-                            : navigation.navigate("")}
+                            onPress={() => card.title.includes("Virtual") ?
+                                navigation.navigate("Pin", { title: "Create PIN", subtitle: "Enter a 4 digit PIN to secure your card", type: "virtual", plan: plan })
+                                : navigation.navigate("")}
                         >
 
                             <View style={styles.cardLeft}>
@@ -56,8 +52,7 @@ const GetCard = ({ navigation, route }: any) => {
                                 </Text>
                             </View>
                             <Image
-                                // @ts-ignore
-                                source={card.image}
+                                source={card.image as ImageSourcePropType}
                                 style={styles.cardImage}
                             />
                         </TouchableOpacity>

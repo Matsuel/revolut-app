@@ -8,7 +8,7 @@ import Loop from '../../assets/Loop'
 import Bar from '../../assets/Bar'
 import Plus from '../../assets/Plus'
 import Bag from '../../assets/Bag'
-import { PlanType } from './type'
+import { PlanType } from '../../types/type'
 import PlanDetails from '../../Components/PlanDetails/PlanDetails'
 import PlansHeader from '../../Components/PlansHeader/PlansHeader'
 
