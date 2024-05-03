@@ -21,7 +21,6 @@ type RouteParams = {
 const Pin = ({ navigation, route }: PinProps) => {
 
     const { title, subtitle, type, plan, code } = route.params
-    console.log(type, plan, code)
 
     const [pin, setPin] = useState<number[]>(new Array(4).fill(NaN))
     const [focusedInput, setFocusedInput] = useState<number | null>(null)
@@ -76,7 +75,6 @@ const Pin = ({ navigation, route }: PinProps) => {
                         onFocus={() => setFocusedInput(item)}
                         onBlur={() => {
                             setFocusedInput(null)
-                            console.log(pin)
                         }}
                     />
 
