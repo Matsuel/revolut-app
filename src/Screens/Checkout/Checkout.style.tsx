@@ -170,4 +170,18 @@ export const styles = StyleSheet.create({
         fontSize: 14,
         fontWeight: "700",
     },
+    confirmButton: {
+        marginTop: "35%",
+        width: "100%",
+        height: 50,
+        backgroundColor: "#0d6efd",
+        borderRadius: 50,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    confirmButtonText: {
+        color: "#fff",
+        fontSize: 16,
+        fontWeight: "700",
+    },
 });

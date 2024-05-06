@@ -5,6 +5,7 @@ import { Capitalize } from '../../Functions/String'
 import Card from '../../assets/Card'
 import Lock from '../../assets/Lock'
 import { PlaInfosType, RouteParams } from '../../types/type'
+import Loader from '../../Components/Loader/Loader'
 
 interface CheckoutProps {
     navigation: any
@@ -20,6 +21,7 @@ const Checkout = ({
     console.log(type, plan, code)
 
     const [money, setMoney] = useState<number>(0)
+    const [showLoader, setShowLoader] = useState<boolean>(false)
 
     const handleMoney = (value: number) => {
         if (money !== value) {
@@ -123,8 +125,25 @@ const Checkout = ({
                             Change
                         </Text>
                     </TouchableOpacity>
+
                 </View>
             </View>
+
+            <TouchableOpacity 
+            style={styles.confirmButton}
+            onPress={() => setShowLoader(true)}
+            >
+                <Text style={styles.confirmButtonText}>
+                    Pay
+                </Text>
+            </TouchableOpacity>
+
+            <Loader
+                navigation={navigation}
+                showLoader={showLoader}
+                setShowLoader={setShowLoader}
+                goHome={true}
+            />
         </View>
     )
 }

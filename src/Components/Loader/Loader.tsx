@@ -6,7 +6,8 @@ interface LoaderProps {
     navigation: any
     showLoader: boolean
     setShowLoader: Function
-    setShowCamera: Function
+    setShowCamera?: Function
+    goHome?: boolean
 }
 
 
@@ -14,14 +15,16 @@ const Loader = ({
     navigation,
     showLoader,
     setShowLoader,
-    setShowCamera
+    setShowCamera,
+    goHome
 }: LoaderProps) => {
 
     useEffect(() => {
         if (showLoader) {
-            setShowCamera(false)
+            setShowCamera && setShowCamera(false)
             setTimeout(() => {
                 setShowLoader(false)
+                goHome && navigation.navigate('Home')
                 navigation.navigate('Passcode', {
                     title: "Create Passcode",
                     subtitle: "The passcode should be 6 to 12 digits long",
