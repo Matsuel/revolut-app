@@ -18,7 +18,6 @@ const Checkout = ({
 }: CheckoutProps) => {
 
     const { type, plan, code } = route.params
-    console.log(type, plan, code)
 
     const [money, setMoney] = useState<number>(0)
     const [showLoader, setShowLoader] = useState<boolean>(false)
