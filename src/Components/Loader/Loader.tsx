@@ -8,6 +8,7 @@ interface LoaderProps {
     setShowLoader: Function
     setShowCamera?: Function
     goHome?: boolean
+    time?: number
 }
 
 
@@ -16,7 +17,8 @@ const Loader = ({
     showLoader,
     setShowLoader,
     setShowCamera,
-    goHome
+    goHome,
+    time
 }: LoaderProps) => {
 
     useEffect(() => {
@@ -30,7 +32,7 @@ const Loader = ({
                     subtitle: "The passcode should be 6 to 12 digits long",
                     random: false,
                 })
-            }, 1000)
+            }, time ? time : 3000)
         }
     }, [showLoader])
 

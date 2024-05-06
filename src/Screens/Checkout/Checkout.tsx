@@ -143,6 +143,7 @@ const Checkout = ({
                 showLoader={showLoader}
                 setShowLoader={setShowLoader}
                 goHome={true}
+                time={6500}
             />
         </View>
     )
